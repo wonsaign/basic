@@ -1,0 +1,10 @@
+/target/
+/logs/
+/.settings/
+.classpath
+~*
+*bak
+/bin/
+.DS_Store
+.pid
+
