@@ -30,4 +30,17 @@ public class Sort {
 		}
 	}
 
+	
+    static void insertionSort(int[] num ,int begin ,int end) {
+    	for(int i = begin ,j = i;i < end; j= ++i){
+    		int t = num[i+1];
+    		while(t < num[j]) {
+    			num[j+1]=num[j];
+    			if(j-- == begin) { 
+    				break;   
+    			}
+    		}
+    		num[j + 1] = t;
+    	}
+    }
 }
