@@ -5,10 +5,12 @@ import java.util.Arrays;
 public class Sort {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int[] num= {1,0,-1,10,9,-3,7};
-		sort(num,1,7);
+//		sort(num,1,7);
+		qSort(num,0,6);
 		
+//		System.out.println(recursionMultip(5));
+//		System.out.println(recursionPuls(num,0));
 		System.out.println(Arrays.toString(num));
 	}
 	/**
@@ -42,5 +44,58 @@ public class Sort {
     		}
     		num[j + 1] = t;
     	}
+    }
+    
+    static int recursionMultip(int i) {
+    	//int sum = 0;
+    	if(i>0) {
+    		return i*recursionMultip(i-1);
+    	}else {
+    		return 1;
+    	}
+    }
+    static int recursionPuls(int[] i,int move) {
+    	int sulotion = i.length - move;
+    	if(sulotion > 0) {
+    		move++;
+    		return i[sulotion-1]+recursionPuls(i , move);
+    	}else {
+    		return 0;
+    	}
+    }
+    // {1,0,-1,10,9,-3,7};
+    // -3 0 -1 1 9 10 7
+    // -3 0 -1 1 7 9 10
+    // -3 -1 0 1 7 9 10
+    static void qSort(int[] a,int begin,int end) {
+    	if(begin>end) {
+    		return;
+    	}
+    	int i , j , index;
+    	// 分组左部分和 右部分 , 递归
+    	i = begin;
+    	j = end;
+    	index = a[i];
+    	while(i < j) {
+    		while(i < j && a[j] >= index) {
+    			j--;
+    		}
+    		if(i<j) {
+    			a[i] = a[j];
+    			a[j] = index;
+    			i++;
+    		}
+    		while(i < j && a[i] <= index){
+    			i++;
+    		}
+    		if(i<j) {
+    			a[j] = a[i];
+    			a[i] = index;
+    			j--;
+    		}
+    	}
+    	qSort(a,begin,i-1);
+    	qSort(a,i+1,end);
+    	
     }
 }
