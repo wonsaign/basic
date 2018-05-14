@@ -30,28 +30,54 @@ public class ThreadTest{
 //        pool.shutdown(); 
 		
 		
-		ExecutorService pool = Executors.newSingleThreadExecutor();
-		Future<String> f = pool.submit(new Call());
-
-		System.out.println(f.get(5,TimeUnit.SECONDS).toString());
-		if(f.isDone()) {
-			System.err.println("done");
-		}
-		pool.shutdown();
-		
-		for (int i = 0; i < 10; i++) {
-			Thread t = new Thread(new SimpleDaemons());
-			t.setDaemon(true);
-			t.start();
-		}
+//		ExecutorService pool = Executors.newSingleThreadExecutor();
+//		Future<String> f = pool.submit(new Call());
+//
+//		System.out.println(f.get(5,TimeUnit.SECONDS).toString());
+//		if(f.isDone()) {
+//			System.err.println("done");
+//		}
+//		pool.shutdown();
+//		
+//		for (int i = 0; i < 10; i++) {
+//			Thread t = new Thread(new SimpleDaemons());
+//			t.setDaemon(true);
+//			t.start();
+//		}
 		// 上面代码可修改为
 //		ExecutorService pool = Executors.newCachedThreadPool(new DaemonThreadFactory());
 //		for (int i = 0; i < 10; i++) {
 //			pool.execute(new SimpleDaemons());
 //		}
-		System.out.println("all daemon start");
-		TimeUnit.MILLISECONDS.sleep(175);
+//		System.out.println("all daemon start");
+//		TimeUnit.MILLISECONDS.sleep(175);
+		
+	//	ExecutorService pool =	Executors.newCachedThreadPool();
+	//	pool.submit(new RunEx());
+		
+	try {
+		int i = 1/0;
+	} catch (Exception e) {
+		System.out.println(e);
+		System.out.println(e.getMessage());
+		e.printStackTrace();
 	}
+}
+
+static void Un() {
+	Thread.UncaughtExceptionHandler hander = new Thread.UncaughtExceptionHandler() {
+			
+			@Override
+			public void uncaughtException(Thread t, Throwable e) {
+				// TODO Auto-generated method stub
+				System.out.println(e);
+			}
+		};
+	}
+	Thread t = new RunEx();
+	
+	
+	
 }
 
 class MyThread extends Thread implements Runnable{
@@ -80,5 +106,20 @@ class SimpleDaemons implements Runnable{
 			
 		}
 	}
+}
 
+class RunEx extends Thread {
+ //implements Callable<Object>,Runnable{
+//	@Override
+//	public Object call() throws Exception {
+//		throw new RuntimeException("我故意出错的");
+//	}
+//
+//	@Override
+//	public void run() {
+//		throw new RuntimeException("我故意出错的");
+//	}
+	public void run() {
+		throw new RuntimeException("我故意出错的");
+	}
 }
