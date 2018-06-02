@@ -2,7 +2,7 @@ package com.learn.java.lang.wangs.test;
 
 import com.learn.java.lang.wangs.test.inter.Inter;
 
-public class InnerClass extends Abs implements Inter {
+public class InnerClass extends AbsImplInterface implements Inter {
 
 	private int i ;
 	static int h;
@@ -22,7 +22,7 @@ public class InnerClass extends Abs implements Inter {
 			
 		};
 		@SuppressWarnings("unused")
-		Abs abs = new Abs() {
+		AbsImplInterface absImplInterface = new AbsImplInterface() {
 			// 可有可无
 			void sayAbsHello() {}
 			@Override
