@@ -98,4 +98,25 @@ public class Sort {
     	qSort(a,i+1,end);
     	
     }
+    
+	static void sort2(int[] nums) {
+		// 0  指针
+		int ZeroPoint = nums.length;
+		for (int i = nums.length -1 ; i >= 0; i--) {
+			if(nums[i] == 0) {
+				int zero = nums[i];
+				int nonZeroPoint = i ;
+				while(nonZeroPoint < ZeroPoint - 1) {
+					nums[nonZeroPoint] = nums[nonZeroPoint+1];
+					nonZeroPoint++;
+				}
+				nums[ZeroPoint - 1] = zero;
+				ZeroPoint--;
+			}
+		}
+	}
+	
+	static void contaninsChar(String a,String b) {
+		a.toCharArray();
+	}
 }

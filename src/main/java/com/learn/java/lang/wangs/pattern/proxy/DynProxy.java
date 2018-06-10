@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class Invo2 implements InvocationHandler{
+public class DynProxy implements InvocationHandler{
 
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -17,6 +17,6 @@ public class Invo2 implements InvocationHandler{
 	@SuppressWarnings("unchecked")
 	public static <T> T newMapperProxy(Class<T> t) {
 		return (T)Proxy.newProxyInstance(t.getClass().getClassLoader(), 
-				t.getClass().getInterfaces(), new Invo2());
+				t.getClass().getInterfaces(), new DynProxy());
 	}
 }
