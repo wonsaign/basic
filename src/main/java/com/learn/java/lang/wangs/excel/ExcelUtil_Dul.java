@@ -21,7 +21,7 @@ public class ExcelUtil_Dul {
 
 	public static void main(String[] args) throws EncryptedDocumentException, InvalidFormatException, IOException {
 		
-		showResult(getExcelData("D:/excel/基础.xlsx",3,6,2), getExcelData("D:/excel/test.xlsx",3,2,2));
+		showResult(getExcelData("D:/excel/基础.xlsx",3,6,2), getExcelData("D:/excel/test.xlsx",8,2,2));
 	}
 	
 	public static void showResult(Map<String, List<Object[]>> sourceData , Map<String,List<Object[]>> targetData){
@@ -54,10 +54,10 @@ public class ExcelUtil_Dul {
 	
 	/**
 	 * 
-	 * @param source
-	 * @param pageNum
-	 * @param rowNum
-	 * @param colNum
+	 * @param path 文件路径
+	 * @param pageNum sheet页
+	 * @param objSizie 当前sheet页最大列数
+	 * @param keyLocal 匹配的关键字
 	 * @throws EncryptedDocumentException
 	 * @throws InvalidFormatException
 	 * @throws IOException
@@ -123,12 +123,6 @@ public class ExcelUtil_Dul {
 					}
 				 }		
 				 objsArray.add(objs);
-				 
-//				 List<Object[]> getData = result.get(key);
-//				 if(getData.size() > 1) {
-//					 getData.add(objs);
-//				 }
-				 
 				 result.put(key, objsArray);
 			 }
 		 }

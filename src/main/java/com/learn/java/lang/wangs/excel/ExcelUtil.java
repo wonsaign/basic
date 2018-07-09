@@ -51,10 +51,10 @@ public class ExcelUtil {
 	}
 	/**
 	 * 
-	 * @param source
-	 * @param pageNum
-	 * @param rowNum
-	 * @param colNum
+	 * @param path 文件路径
+	 * @param pageNum sheet页
+	 * @param objSizie 当前sheet页最大列数
+	 * @param keyLocal 匹配的关键字
 	 * @throws EncryptedDocumentException
 	 * @throws InvalidFormatException
 	 * @throws IOException
