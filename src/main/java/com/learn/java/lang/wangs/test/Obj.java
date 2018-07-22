@@ -1,6 +1,6 @@
 package com.learn.java.lang.wangs.test;
 
-import java.util.Optional;
+//import java.util.Optional;
 // 所有的类，都不能是private的
 public class Obj extends Father{
 	public int num = 3;
