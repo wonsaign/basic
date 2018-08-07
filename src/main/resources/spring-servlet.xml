@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- Annotation Config -->
+	<context:annotation-config />
+	
+	<!-- 自动扫描 -->
+	<context:component-scan base-package="com.jdab.platform" />
+	
+	<import resource="classpath:spring-mongodb.xml"/>
+	<!-- <import  resource="classpath:shiro-auth.xml"/> -->
+	
+	<!-- **************** druid 监控连接池配置 ***************** https://github.com/alibaba/druid/wiki -->
+	<bean id="baseDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="5" />
+		<property name="minIdle" value="5" />
+		<property name="maxActive" value="50" />
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="30000" />
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<property name="validationQuery" value="SELECT 'x'" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="poolPreparedStatements" value="false" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="20" />
+		<!-- 对泄漏的连接 自动关闭 -->
+		<property name="removeAbandoned" value="true" /> <!-- 打开removeAbandoned功能 -->
+		<property name="removeAbandonedTimeout" value="180" /> <!-- 1800秒，也就是30分钟 -->
+		<property name="logAbandoned" value="true" /> <!-- 关闭abanded连接时输出错误日志 -->
+		<!-- 配置监控统计拦截的filters -->
+		<property name="filters" value="mergeStat" />
+		<!-- <property name="filters" value="stat" /> -->
+		<!-- 慢日志查询 缺省为3秒 修改为10秒 10000 -->
+		<property name="connectionProperties" value="druid.stat.slowSqlMillis=5000" />
+	</bean>
+
+	<bean id="AndySeinDataSource" parent="baseDataSource" init-method="init"
+		destroy-method="close">
+		<property name="url"
+			value="jdbc:jtds:sqlserver://rm-2ze3x3u5f7912m8f2no.sqlserver.rds.aliyuncs.com:3433;DatabaseName=AndySeinDataSource" />
+		<property name="username" value="andisheng" />
+		<property name="password" value="P@ss1234" />
+	</bean>
+	
+	<!-- 动态配置数据源 -->
+	<bean id="dataSource" class="com.jdab.platform.utils.database.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry value-ref="AndySeinDataSource" key="AndySeinDataSource"></entry>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="AndySeinDataSource"></property>
+	</bean>
+
+	<!-- druid 监控 spring -->
+	<bean id="druid-stat-interceptor"
+		class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor" />
+	<bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut"
+		scope="prototype">
+		<property name="patterns">
+			<list>
+				<value>com.jdab.platform.service.*</value>
+			</list>
+		</property>
+	</bean>
+	<aop:config>
+		<aop:advisor advice-ref="druid-stat-interceptor"
+			pointcut-ref="druid-stat-pointcut" />
+	</aop:config>
+	<!-- ***************事务配置************** -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<aop:config>
+		<aop:advisor pointcut="execution(* com.jdab.platform.service..*.*(..))"
+			advice-ref="txAdvice" />
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager" >
+		<tx:attributes>
+			<tx:method name="add*" read-only="true" />
+			<tx:method name="update*" read-only="true" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="list*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="load*" read-only="true" />
+			<tx:method name="select*" read-only="true" />
+			<tx:method name="*" propagation="REQUIRED" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- MyBatis mapper.xml配置 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<property name="mapperLocations" value="classpath*:com/jdab/platform/mapping/*.xml" />
+	</bean>
+	<!-- MyBatis 接口编程配置 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- basePackage指定要扫描的包，在此包之下的映射器都会被搜索到,可指定多个包，包与包之间用逗号或分号分隔 -->
+		<property name="basePackage" value="com.jdab.platform.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	
+	<!-- 线程池异步执行日志、excel写操作等 -->
+	<bean id="threadPoolTaskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5" />
+		<property name="keepAliveSeconds" value="300" />
+		<property name="maxPoolSize" value="10" />
+		<property name="queueCapacity" value="25" />
+	</bean>
+</beans>	

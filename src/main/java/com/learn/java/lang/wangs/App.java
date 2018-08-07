@@ -2,12 +2,11 @@ package com.learn.java.lang.wangs;
 
 import java.io.IOException;
 
-import org.apache.commons.collections4.functors.ExceptionClosure;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import com.learn.java.lang.wangs.excel.ExcelUtil;
-import com.learn.java.lang.wangs.excel.ExcelUtil_Dul;
+import com.learn.java.lang.wangs.util.excel.ExcelUtil;
+import com.learn.java.lang.wangs.util.excel.ExcelUtil_Dul;
 
 /**
  * Hello world!
