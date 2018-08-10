@@ -1,4 +1,4 @@
-package com.learn.java.lang.wangs.app;
+package com.learn.java.lang.wangs.spring.redis;
 
 import redis.clients.jedis.Jedis;
 
