@@ -49,11 +49,13 @@ public class SocketClient extends WebSocketClient{
 		SocketClient client = null;
 		try{
 			client = new SocketClient(new URI("ws://localhost:8887/"),new Draft_17());
-			client.connect();
-			while(!client.getReadyState().equals(READYSTATE.OPEN)){
-				System.out.println("还没有打开");
-			}
-			System.out.println("打开了");
+//			client.connect(); //线程并没有启动
+//			while(!client.getReadyState().equals(READYSTATE.OPEN)){
+//				System.out.println("还没有打开");
+//			}
+//			System.out.println("打开了");
+			
+			client.connectBlocking();
 			client.send(message);
 		}catch(Exception e){
 //			logger.error("发送消息异常");

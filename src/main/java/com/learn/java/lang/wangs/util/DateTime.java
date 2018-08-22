@@ -2,6 +2,7 @@ package com.learn.java.lang.wangs.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DateTime {
 
@@ -12,11 +13,14 @@ public class DateTime {
 //		d.setTime(l);
 //		Date d = new Date();
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(1533206299000L));
-		System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(1533277385000L));
+		System.out.println(new SimpleDateFormat("HH:mm:ss").format(new Date()));
+//		long timeCha = 8*60*60*1000;
+		System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(1534381068533L));
 		
 	    Calendar cld = Calendar.getInstance();
 	    System.out.println("first Week = "+cld.getFirstDayOfWeek());
+	    
+	    System.err.println(new Date(new Date().getTime() - 2*24*60*60*1000));
 	   
 	   // cld.set(Calendar.DATE, 1);//将今天设为1号
 	    System.out.println("时"+cld.get(Calendar.HOUR_OF_DAY));
