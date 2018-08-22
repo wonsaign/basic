@@ -19,7 +19,7 @@ public abstract class Cache<K,V> {
 	@SuppressWarnings("unchecked")
 	public V getCache(final K k) throws InterruptedException, ExecutionException{
 		Future<V> future = cache.get(k);
-		if(future == null){
+		if(future == null && cache.get(k) == null){
 			// 线程去取
 			Callable<V> c = new Callable<V>() {
 				@Override
@@ -29,9 +29,9 @@ public abstract class Cache<K,V> {
 			};
 			FutureTask<V> ft = new FutureTask<>(c); 
 			future = ft; 
-			// 取得之后才放入
 			cache.put(k, ft);
 			ft.run();// 不 run 线程不走了。。。
+			// 取得之后才放入
 		}
 		return future.get();
 	}
