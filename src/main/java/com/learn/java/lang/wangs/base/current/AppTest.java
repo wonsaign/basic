@@ -1,6 +1,9 @@
 package com.learn.java.lang.wangs.base.current;
 
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.learn.java.lang.wangs.base.current.entity.IValue;
 import com.learn.java.lang.wangs.base.current.entity.Kentend;
@@ -11,13 +14,18 @@ public class AppTest{
 	public static Cache<Kentend,Ventend> c;
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
+
+//		Executor executor = Executors.newFixedThreadPool(20);
+//		executor.execute();
+		ExecutorService pool =  Executors.newFixedThreadPool(20);
+		
 		for (int i = 0; i < 100; i++) {
 			final Kentend k = new Kentend();
 			k.setK(i);
 //			Ventend v  = T(k);
 //			System.out.println(v.getV());
 			
-			new Thread(new Runnable() {
+			pool.execute(new Runnable() {
 				@Override
 				public void run() {
 					try {
@@ -27,9 +35,8 @@ public class AppTest{
 					} catch (ExecutionException e) {
 					}
 				}
-			}).start();
-			
-			new Thread(new Runnable() {
+			});
+			pool.execute(new Runnable() {
 				@Override
 				public void run() {
 					try {
@@ -39,10 +46,33 @@ public class AppTest{
 					} catch (ExecutionException e) {
 					}
 				}
-			}).start();
+			});
 			
+//			new Thread(new Runnable() {
+//				@Override
+//				public void run() {
+//					try {
+//						Ventend v  = T(k);
+//						System.out.println(v.getV());
+//					} catch (InterruptedException e) {
+//					} catch (ExecutionException e) {
+//					}
+//				}
+//			}).start();
+			
+//			new Thread(new Runnable() {
+//				@Override
+//				public void run() {
+//					try {
+//						Ventend v  = T(k);
+//						System.out.println(v.getV());
+//					} catch (InterruptedException e) {
+//					} catch (ExecutionException e) {
+//					}
+//				}
+//			}).start();
 		}
-		
+		pool.shutdown();
 	}
 	
 	static Ventend T(Kentend k) throws InterruptedException, ExecutionException{
