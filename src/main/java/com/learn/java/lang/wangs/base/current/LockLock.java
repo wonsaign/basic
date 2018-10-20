@@ -58,6 +58,7 @@ public class LockLock {
 					@Override
 					public void run() {
 						for (int i = 0; i < num.size(); i++) {
+							System.identityHashCode(num);
 							num.remove(i);
 						}
 					}
@@ -211,6 +212,11 @@ public class LockLock {
 }
 class sync{
 	private int i = 0;
+	/**
+	 * 
+	 * 同步synchronized,锁住的是每个对象的头部代表标识位的0或1,每个对象的头部都有几个信息,hashcode,锁标识位
+	 * 
+	 */
 	synchronized int sysMethod() throws InterruptedException {
 		++i;
 		TimeUnit.MILLISECONDS.sleep(500);

@@ -1,6 +1,6 @@
 package com.learn.java.lang.wangs.pattern.factory;
 
-public  class HumanFactory extends AbsHumenFactory{
+public  class HumanFactoryExtender1 extends AbsHumanFactory{
 
 	// 共产 的实际工作，造人
 	@SuppressWarnings("unchecked")

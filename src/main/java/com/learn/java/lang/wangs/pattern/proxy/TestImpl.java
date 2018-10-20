@@ -4,6 +4,7 @@ public class TestImpl implements Test{
 
 	@Override
 	public String hello() {
+		System.out.println("hello");
 		return null;
 	}
 
