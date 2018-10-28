@@ -6,7 +6,7 @@ import java.util.List;
 public class NewTry {
 
 	void newTry() {
-		var x = new ArrayList<String>();
+//		var x = new ArrayList<String>();
 		
 		//List<String> s = List.of("a","b","c");
 		//x = (ArrayList<String>) s;
