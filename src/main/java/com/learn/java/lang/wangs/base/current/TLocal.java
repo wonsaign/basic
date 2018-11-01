@@ -1,16 +1,37 @@
 package com.learn.java.lang.wangs.base.current;
 
-public class TLocal {
+import java.util.Random;
 
-	private ThreadLocal<String> t ;
-	public ThreadLocal<String> getT() {
-		return t;
+import com.alibaba.fastjson.JSONObject;
+
+public class TLocal extends Thread{
+
+	private final static ThreadLocal<String> t = new ThreadLocal<>();
+	
+	TLocal.TMap tmaps = null;
+	public String getT() {
+		return t.get();
 	}
-	public void setT(ThreadLocal<String> t) {
-		this.t = t;
+	public void setT(String value) {
+		t.set(value);
 	}
+	public static String getTimes(int i) {
+		return String.valueOf(i);
+	}
+	
+	@Override
+	public String toString() {
+		return JSONObject.toJSONString(Thread.currentThread());
+	}
+	
+	static class TMap{
+		
+	}
+	
 	public static void main(String[] args) {
-		ThreadLocal<String> tl = new ThreadLocal<>();
-		tl.set("123");
+		TLocal tl = new TLocal();
+		//Thread t = Thread.currentThread();
+		System.out.println(tl.toString());
+		
 	}
 }

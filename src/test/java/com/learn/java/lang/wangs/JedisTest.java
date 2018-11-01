@@ -1,8 +1,5 @@
 package com.learn.java.lang.wangs;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import junit.framework.TestCase;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
@@ -12,27 +9,56 @@ public class JedisTest extends TestCase{
 
 	public static void main(String[] args) {
 		
+		Jedis jedis = getByNum(2);
+		setList(jedis);
+		
+		jedis.save();// RDB持久化,已经废弃
+		jedis.bgsave();// RDB主要的使用方式
+		
+		jedis.bgrewriteaof();// AOF持久化方式
+		tranTest(jedis);
+		// pipeTest(jedis);
+	}
+	// DB 默认
+	public static Jedis getDefault() {
 		Jedis jedis = new Jedis("127.0.0.1",6379);
+		return jedis;
+	}
+	public static Jedis getByNum(int num) {
+		Jedis jedis = new Jedis("127.0.0.1",6379);
+		jedis.select(num);
+		return jedis;
+	}
+	static void setList(Jedis jedis) {
+		jedis.lpush("list", "1","2","3");
+		jedis.rpush("list", "1","2","3");
+	}
+	static void setKVS(Jedis jedis) {
+		String[] keysvalues = {"k1","v1","k2","v2","k3","v3"};
+		jedis.mset(keysvalues);
+	}
+	static void setString(Jedis jedis) {
 		String random = String.valueOf((int)((Math.random()*9+1)*100000));
 		jedis.set("18012345678", random, "NX", "EX", 60);
 		jedis.set("18087654321",random);
-		String[] keysvalues = {"k1","v1","k2","v2","k3","v3"};
-		jedis.mset(keysvalues);
+	}
+	static void incre(Jedis jedis) {
 		jedis.incrBy("incr",2L);
-		
-		jedis.lpush("list", "1","2","3");
-		jedis.rpush("list", "1","2","3");
-		
-		Map<String,String> map = new HashMap<>();
-		
-		tranTest(jedis);
-		pipeTest(jedis);
 	}
+	// 事务
 	static void tranTest(Jedis jedis) {
-		Transaction t =	jedis.multi();// begin
-		t.set("transation", "");
-		t.exec();// 结束
+		try {
+			Transaction t =	jedis.multi();// begin
+			t.set("transation", "");
+			t.lpush("QQ", "55");  
+			int make_error = 1 / 0; 
+			t.lpush("QQ", "66");  
+			t.exec();// 结束
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
+	// 管道
 	static void pipeTest(Jedis jedis) {
 		long begin = System.currentTimeMillis();
 		for (int i = 0; i < 10000; i++) {
