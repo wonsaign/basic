@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.learn.java</groupId>
-  <artifactId>wangs</artifactId>
+  <artifactId>basic</artifactId>
   <version>1.0.0</version>
   <packaging>war</packaging>
 
