@@ -27,4 +27,27 @@ public final class StringCopy {
 		}
     	return to;
     }
+    public static void main(String[] args) {
+    	StringCopy s = null;
+    	s = new StringCopy("s1");
+    	s = new StringCopy("s2"); 
+    	T t1 = new T("t1");
+    	t1 = new T("tt1");
+    	t1.setV("ttt1");
+    	T t2 = new T("t2");
+    	t2 = new T("tt2");
+    	t2.setV("ttt2");
+    }
+}
+final class T{
+	private String v;
+	public T(String v) {
+		this.v = v;
+	}
+	public String getV() {
+		return v;
+	}
+	public void setV(String v) {
+		this.v = v;
+	}
 }
