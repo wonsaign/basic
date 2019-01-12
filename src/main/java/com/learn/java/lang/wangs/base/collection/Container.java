@@ -7,7 +7,7 @@ public class Container {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Map m = new ConcurrentHashMap<>();
+		Map<String,String> m = new ConcurrentHashMap<>();
 		
 		for(int i = 0;;) {
 			System.out.println("how to do?");

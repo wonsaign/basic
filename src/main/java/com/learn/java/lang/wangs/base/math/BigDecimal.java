@@ -17,6 +17,6 @@ public class BigDecimal {
         Double temp= Double.valueOf(yearString);
         
         System.out.println(Double.valueOf(new DecimalFormat("#.000").format(i)));
-		
+		System.out.print("obj");
 	}
 }

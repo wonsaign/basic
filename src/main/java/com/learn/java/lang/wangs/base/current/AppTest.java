@@ -25,15 +25,12 @@ public class AppTest{
 //			Ventend v  = T(k);
 //			System.out.println(v.getV());
 			
-			pool.execute(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						Ventend v  = T(k);
-						System.out.println(v.getV());
-					} catch (InterruptedException e) {
-					} catch (ExecutionException e) {
-					}
+			pool.execute(() -> {
+				try {
+					Ventend v = T(k);
+					System.out.println(v.getV());
+				} catch (InterruptedException e) {
+				} catch (ExecutionException e) {
 				}
 			});
 			pool.execute(new Runnable() {
