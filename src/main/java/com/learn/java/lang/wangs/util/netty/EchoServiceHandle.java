@@ -12,7 +12,7 @@ public class EchoServiceHandle extends ChannelInboundHandlerAdapter{
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
-        System.err.println("Service recevide" + in.toString(CharsetUtil.UTF_8));
+        System.err.println("Service recevide:" + in.toString(CharsetUtil.UTF_8));
         ctx.write(msg);
     }
 
