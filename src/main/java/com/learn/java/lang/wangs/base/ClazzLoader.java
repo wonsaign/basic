@@ -3,6 +3,7 @@ package com.learn.java.lang.wangs.base;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
@@ -49,12 +50,14 @@ public class ClazzLoader extends ClassLoader{
         return baos.toByteArray();
     }
     
-    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
     	ClazzLoader myloader = new ClazzLoader();
     	Class<?> c = Class.forName("com.People", true, myloader);
     	// People oo = new People();
     	// sSystem.err.println(oo.toString());
-    	Object o  = c.newInstance();
+    	//Constructor.
+    	// 工资高于8000,就是8000,基本工资2500,工资一次发,年终奖无,其他部门不知道
+    	Object o  = c.getDeclaredConstructor().newInstance();
     	setProp();
     	System.out.println(c.getClassLoader());
     	System.err.println(o.getClass().getClassLoader());

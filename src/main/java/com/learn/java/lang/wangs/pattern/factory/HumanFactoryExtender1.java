@@ -8,7 +8,7 @@ public  class HumanFactoryExtender1 extends AbsHumanFactory{
 	public  <T extends Human> T createHuman(Class<T> clazz) {
 		Human human = null;
 		try {
-			human = (T)Class.forName(clazz.getName()).newInstance();
+			human = (T)Class.forName(clazz.getName()).getDeclaredConstructor().newInstance();
 		}catch (Exception e) {
 		}
 		return (T) human;

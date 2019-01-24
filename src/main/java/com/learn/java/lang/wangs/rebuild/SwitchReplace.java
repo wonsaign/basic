@@ -1,14 +1,18 @@
 package com.learn.java.lang.wangs.rebuild;
 
+import java.lang.reflect.InvocationTargetException;
+
 //@Switch
 class Switch {
 	public static final String PACKAGE_NAME = "com.learn.java.lang.wangs.rebuild.";
-	
-	public Switch getPolyContent(String caseName) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+	public Switch getPolyContent(String caseName)
+			throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException, NoSuchMethodException, SecurityException {
 		String clazzName = PACKAGE_NAME + caseName; 
 		Class<?> clazz = Class.forName(clazzName);
 		// this is init , must be null
-		return (Switch)clazz.newInstance();
+		return (Switch)clazz.getDeclaredConstructor().newInstance();
 	}
 	void doCase() {};
 }
@@ -29,7 +33,8 @@ class CaseCSub extends Switch{
 }
 
 public class SwitchReplace {
-	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException, NoSuchMethodException, SecurityException {
 		Switch s = new Switch();
 		s.getPolyContent("CaseCSub").doCase();
 	}

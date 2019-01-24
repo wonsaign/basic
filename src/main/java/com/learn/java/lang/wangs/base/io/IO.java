@@ -20,7 +20,7 @@ public class IO {
 	}
 	
 	static void read() throws IOException {
-		@SuppressWarnings("resource")
+		//@SuppressWarnings("resource")
 		FileInputStream fi = new FileInputStream(new File("d://abc.txt"));
 		int line = fi.read();
 		try {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

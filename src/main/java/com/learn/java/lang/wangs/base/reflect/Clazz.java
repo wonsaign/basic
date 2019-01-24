@@ -22,7 +22,7 @@ public class Clazz {
 			String methodName = "get" + s ;
 			Method method = clazz.getMethod(methodName);
 			@SuppressWarnings("unchecked")
-			T result = (T) method.invoke(clazz.newInstance());
+			T result = (T) method.invoke(clazz.getDeclaredConstructor().newInstance());
 			if(QString.isNullOrEmpty(result)){
 				return methodName; 
 			}

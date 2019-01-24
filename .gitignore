@@ -2,6 +2,7 @@
 /logs/
 /.settings/
 .classpath
+.project
 ~*
 *bak
 /bin/
@@ -9,4 +10,5 @@
 .pid
 eclipse-formatter.xml
 .vscode/
+
 
