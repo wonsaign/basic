@@ -16,7 +16,6 @@ public class InnerClass extends AbsImplInterface implements Inter {
 		Inter inter = new Inter() {
 			@Override
 			public void sayInterHello() {
-				// TODO Auto-generated method stub
 				
 			}
 			
@@ -35,6 +34,7 @@ public class InnerClass extends AbsImplInterface implements Inter {
 	}
 	
 	void method() {
+		@SuppressWarnings("unused")
 		class methodIn{
 			
 		}

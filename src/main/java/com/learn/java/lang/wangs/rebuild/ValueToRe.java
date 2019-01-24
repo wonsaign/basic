@@ -23,7 +23,7 @@ class Money{
 	public double getRenminbi() {
 		return this.renminbi;
 	}
-	// TODO: equals 判断保证值对象唯一
+	// equals 判断保证值对象唯一
 }
 
 public class ValueToRe {

@@ -9,6 +9,7 @@ public class TestSpring implements ApplicationContextAware{
 	@Autowired
 	private static CDplayer player;
 	@Autowired
+	@SuppressWarnings("unused")
 	private static ApplicationContext app;
 	
 	public static void main(String[] args) {

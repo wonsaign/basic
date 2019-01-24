@@ -50,7 +50,7 @@ public class ReplaceMehodwithMethodObject {
 			this.e = e;
 			this.f = f;
 		}
-		// TODO:继续拆分到很多函数
+		// 继续拆分到很多函数
 		double countPrice() {
 			a = 1;
 			b = 2;

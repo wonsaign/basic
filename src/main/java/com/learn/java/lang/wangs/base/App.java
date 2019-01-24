@@ -5,7 +5,6 @@ package com.learn.java.lang.wangs.base;
 public class App extends Father{
 	public int num = 3;
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		// argsInt(1,2);
 		//  string();
 		// new Obj().superClassName();
@@ -22,7 +21,7 @@ public class App extends Father{
 	}
 	
 	static void  Exe() {
-		int i = 1/0;//未try
+		// int i = 1/0;//未try
 		try {
 			System.exit(0);//强制退出
 		}catch (Exception e) {
@@ -52,7 +51,7 @@ public class App extends Father{
 	static void TsName() {
 		System.out.println("hello world");
 	}
-	
+	@SuppressWarnings("unused")
 	private void superClassName() {
 		// super.getClass,调用的是父类Object的getClass(),是final和native的,而它的getName表示运行类的名称
 		System.out.println(super.getClass().getName());

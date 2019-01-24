@@ -1,12 +1,9 @@
 package com.learn.java.lang.wangs.base.current;
 
-import java.awt.MultipleGradientPaint.CycleMethod;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
@@ -109,6 +106,7 @@ public class LockLock {
 				return null;
 			}
 		});
+		@SuppressWarnings("unused")
 		Thread t = new Thread(f);
 	}
 	
@@ -185,7 +183,6 @@ public class LockLock {
 	}
 	
 	static void sycTest(){
-		// TODO Auto-generated method stub
 		for (int i = 0; i < 50; i++) {
 		
 			new Thread(new Runnable() {
@@ -228,6 +225,7 @@ class sync{
 class lock{
 	private int i = 0;
 	private final Lock lock = new ReentrantLock();
+	@SuppressWarnings("unused")
 	private final Condition con = lock.newCondition();
 	
 	int lockNum() throws InterruptedException {

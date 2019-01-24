@@ -54,11 +54,11 @@ public class StringTest {
 ////		String ssss = hi;
 ////		System.out.println(hi);
 //	}
-	
+	@SuppressWarnings("unused")
 	private void paramTest2(StringBuffer sb) {
 		//sb.append("world");
 	}
-	
+	@SuppressWarnings("unused")
 	private void eqAnd(){
 		String a = "test";
 		String b = "te"+new String("st");
@@ -74,6 +74,7 @@ public class StringTest {
 		// 下面的changeF()和changeT()代表了两种情况
 		System.out.println(StringTest.hi==hi);
 		// s.substring(0, 3);// 未修改源字符串,而是新new一个
+		@SuppressWarnings("unused")
 		String ss = hi;
 		hi = "change";
 		// 指令重排了? no

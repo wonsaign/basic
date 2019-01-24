@@ -110,7 +110,6 @@ class PrintDoubleThread{
 		Runnable even = new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				synchronized(lock) {
 					int location = getPoint(E_T);
 					if(location >= size) {// 执行完毕

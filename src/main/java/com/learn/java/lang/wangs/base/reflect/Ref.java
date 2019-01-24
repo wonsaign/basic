@@ -5,7 +5,6 @@ import java.lang.reflect.Field;
 public class Ref {
 
 	public static void main(String[] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException  {
-		// TODO Auto-generated method stub
 		ReadOnly r = new ReadOnly();
 		Field f = r.getClass().getDeclaredField("i");
 		f.setAccessible(true);

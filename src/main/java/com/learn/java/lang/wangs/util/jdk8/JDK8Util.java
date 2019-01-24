@@ -3,7 +3,6 @@ package com.learn.java.lang.wangs.util.jdk8;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.function.IntFunction;
 import java.util.function.Supplier;
 
 public class JDK8Util {
@@ -19,6 +18,7 @@ public class JDK8Util {
     }
 
     static Supplier<?> SupplierTest(){
+        @SuppressWarnings("unused")
         A a = new A();
         Supplier<A> s0 = A::valueOfA; // lambda表达式必须是接口
         Supplier<A> s1 = () -> A.valueOfInt(new int[]{1,2,3}); // lambda表达式必须是接口

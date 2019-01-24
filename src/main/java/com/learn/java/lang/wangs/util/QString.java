@@ -248,7 +248,6 @@ public final class QString {
 		Long val = toLong(s);
 		return val == null ? def : val.longValue();
 	}
-	// TODO:
 //	public static String[] split(String src, String regex) {
 //		if (src == null //
 //				|| (src = src.trim()).isEmpty()) {

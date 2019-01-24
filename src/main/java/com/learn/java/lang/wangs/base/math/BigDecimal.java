@@ -13,7 +13,8 @@ public class BigDecimal {
 		System.out.println(s);
 		
 		DecimalFormat format = new DecimalFormat("#.00");
-        String yearString = format.format(i);
+		String yearString = format.format(i);
+		@SuppressWarnings("unused")
         Double temp= Double.valueOf(yearString);
         
         System.out.println(Double.valueOf(new DecimalFormat("#.000").format(i)));

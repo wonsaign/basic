@@ -6,6 +6,7 @@ import java.util.List;
 public class NewTry {
 
 	static void newTry() {
+		@SuppressWarnings("unused")
 		var x = new ArrayList<String>();
 		
 		List<String> s = List.of("a","b","c");

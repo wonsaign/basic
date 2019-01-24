@@ -28,6 +28,7 @@ public final class StringCopy {
     	return to;
     }
     public static void main(String[] args) {
+		@SuppressWarnings("unused")
     	StringCopy s = null;
     	s = new StringCopy("s1");
     	s = new StringCopy("s2"); 

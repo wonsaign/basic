@@ -119,7 +119,7 @@ public class ExcelUtil {
 		return result;
 	}
 	
-	// FIXME: 算法有问题，尚未修改，多层循环，
+	// 算法有问题，尚未修改，多层循环，
 	@SuppressWarnings("null")
 	private static Map<String, Object[]> combineMap(Map<String, Object[]> target , Map<String, Object[]> source , int objSize) {
 		Map<String, Object[]> result = new LinkedHashMap<String, Object[]>() ;

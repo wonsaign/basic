@@ -38,6 +38,7 @@ class Woman extends Humans{
 
 public class ConstantMethod {
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		Humans h = Humans.createMan();
 		
 	}

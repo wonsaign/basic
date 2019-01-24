@@ -17,6 +17,7 @@ public class EService {
 	private static int i = 0;
 	private static Thread t1;
 	private static Thread t2;
+	@SuppressWarnings("unused")
 	private static BlockingDeque<Integer> b;
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
@@ -58,7 +59,6 @@ public class EService {
 			System.out.println("干完了么"+ff.isDone()); 
 			System.out.println(i);
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 	}
 	

@@ -1,15 +1,11 @@
 package com.learn.java.lang.wangs.base.collection;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 public class Container {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Map<String,String> m = new ConcurrentHashMap<>();
+		// Map<String,String> m = new ConcurrentHashMap<>();
 		
-		for(int i = 0;;) {
+		for(;;) {
 			System.out.println("how to do?");
 		}
 	}

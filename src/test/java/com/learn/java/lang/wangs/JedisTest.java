@@ -46,6 +46,7 @@ public class JedisTest extends TestCase{
 		jedis.incrBy("incr",2L);
 	}
 	// 事务
+	@SuppressWarnings("unused")
 	static void tranTest(Jedis jedis) {
 		try {
 			Transaction t =	jedis.multi();// begin

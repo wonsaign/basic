@@ -20,7 +20,6 @@ interface Changeable {
 class ChangeableImpl implements Changeable{
 	@Override
 	public void fly() {
-		// TODO Auto-generated method stub
 		System.err.println("I can 飞");
 	}
 }

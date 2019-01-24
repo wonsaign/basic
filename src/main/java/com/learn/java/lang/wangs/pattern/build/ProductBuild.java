@@ -55,6 +55,7 @@ class Product {
 	
 	// 内部类的作用:可以获取,内部类的私有属性
 	public static class ProdcutBuilder {
+		@SuppressWarnings("unused")
 		private final String id;
 		private String name;
 		private String type;

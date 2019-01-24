@@ -3,16 +3,12 @@ package com.learn.java.lang.wangs.base.current;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 public class ThreadTest{
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
-		// TODO Auto-generated method stub
 //		ExecutorService pool =  Executors.newFixedThreadPool(5);
 //		Thread t1 = new MyThread();  
 //		Thread tt1 = new Thread(new MyThread());
@@ -56,6 +52,7 @@ public class ThreadTest{
 	//	pool.submit(new RunEx());
 		
 	try {
+		@SuppressWarnings("unused")
 		int i = 1/0;
 	} catch (Exception e) {
 		System.out.println(e);
@@ -65,11 +62,11 @@ public class ThreadTest{
 }
 
 static void Un() {
+	@SuppressWarnings("unused")
 	Thread.UncaughtExceptionHandler hander = new Thread.UncaughtExceptionHandler() {
 			
 			@Override
 			public void uncaughtException(Thread t, Throwable e) {
-				// TODO Auto-generated method stub
 				System.out.println(e);
 			}
 		};

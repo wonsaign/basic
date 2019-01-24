@@ -16,6 +16,7 @@ public class T1 {
 		C1 c = new C1();
 		Type superClass = c.getClass().getGenericSuperclass();
 		if(superClass instanceof ParameterizedType) { // 父类有没有被参数化(泛型T->Student/Course... 就是泛型的参数化)
+			@SuppressWarnings("unused")
 			Type[] types = ((ParameterizedType) superClass).getActualTypeArguments();
 			// types -> Student/Course...
 			System.out.println("yes ParameterizedType ");

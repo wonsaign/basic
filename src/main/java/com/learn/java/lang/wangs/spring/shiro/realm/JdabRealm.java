@@ -83,7 +83,6 @@
 //		authInfo = new SimpleAuthenticationInfo(username, password, username);
 //
 //		AuthcUtils.setSession(AuthcUtils.SEC_AUTHUSER, member);// 设置认证用户
-//		// TODO:
 //		//RoleServiceManager roleServiceManager = AppContext.getBean(RoleServiceManager.class);
 //		//AuthcUtils.setSession(AuthcUtils.SHIRO_ROLES, roleServiceManager.getRoles().get(member.getRoleCode()).getRoleRoot());// 设置角色权限
 //		return authInfo;

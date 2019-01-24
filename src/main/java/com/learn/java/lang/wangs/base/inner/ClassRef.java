@@ -24,6 +24,7 @@ public class ClassRef {
 		this.name = name;
 	}
 
+	@SuppressWarnings("unused")
 	private static class StaticInnerClass{
 		final int age;
 		final String name;
@@ -34,6 +35,7 @@ public class ClassRef {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	class StaticNonInnerClass{
 		private void syse() {
 			System.err.println("我叫"+name+"我的年龄是");

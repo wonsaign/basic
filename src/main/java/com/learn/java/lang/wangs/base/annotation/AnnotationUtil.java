@@ -27,8 +27,8 @@ public class AnnotationUtil {
 	                    for (Annotation anno : method.getDeclaredAnnotations()) {
 	                        System.err.println("Annotation in Method "+ method + " : " + anno);
 	                    }
-	                    MyAnnotation methodAnno = method.getAnnotation(MyAnnotation.class);
-	                    // TODO:业务逻辑处理
+	                    // MyAnnotation methodAnno = method.getAnnotation(MyAnnotation.class);
+	                    // 业务逻辑处理
 	                    MyAnnotation p = method.getAnnotation(MyAnnotation.class);
 			        	System.err.println(p.value());
 	                } catch (Throwable ex) {

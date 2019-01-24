@@ -56,7 +56,7 @@ public final class DateTimeUtil {
 	}
 
 	/**
-	 * 格式化日期，如果日期是以小时的整数倍，格式化为yyyy-MM-dd,如果不是小时的整数倍，格式化为带 时间的格式 XXX: 不推荐使用
+	 * 格式化日期，如果日期是以小时的整数倍，格式化为yyyy-MM-dd,如果不是小时的整数倍，格式化为带 时间的格式 
 	 * 
 	 * @param date
 	 *            日期

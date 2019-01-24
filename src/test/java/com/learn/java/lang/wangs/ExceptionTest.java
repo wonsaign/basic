@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@SuppressWarnings("unused")
 public class ExceptionTest {
 
 //	static void m() {
@@ -36,7 +36,7 @@ public class ExceptionTest {
 		for (int i = 0; i < 1000; i++) {
 			Object o = new Object();
 		}
-		Map m = new HashMap();
+		var m = new HashMap<>();
 		StringBuffer sb = new StringBuffer("hi");
 		String st = "im st";
 		// 作用域,如果什么都不返回,匿名方法,但是作用于不可用于{}外

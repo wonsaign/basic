@@ -9,6 +9,7 @@ public class RefPricties{
         System.out.println("begin");
         A a = new A();
         SoftReference<A> softref = new SoftReference<A>(a);
+        @SuppressWarnings("unused")
         WeakReference<A> weakref = new WeakReference<A>(a);
         if(softref.get() != null){
             a = softref.get(); // 内存够用,可以直接干

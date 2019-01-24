@@ -7,7 +7,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Loop {
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
 		String in;
 		Scanner sc = new Scanner(System.in);
 		do {
@@ -21,6 +20,7 @@ public class Loop {
 			System.out.println("i="+i);
 			System.out.println("j="+j);
 		}
+		@SuppressWarnings("unused")
 		ReentrantLock rt = new ReentrantLock();
 		
 	}
