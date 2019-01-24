@@ -5,6 +5,7 @@ import java.util.Map;
 public class JdkNine{
 
     static void factory(){
-        var immutableMap = Map.of("11", 1, 22, 2, 33L, 3);
+        Map<?,?> immutableMap = Map.of("11", 1, 22, 2, 33L, 3);
+        immutableMap.get("11");
     }
 }

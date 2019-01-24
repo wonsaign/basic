@@ -362,7 +362,7 @@ public final class DateTimeUtil {
 	public static Integer toYMD(Date date) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
-		return new Integer(cal.get(Calendar.YEAR) * 10000 //
+		return Integer.valueOf(cal.get(Calendar.YEAR) * 10000 //
 				+ (cal.get(Calendar.MONTH) + 1) * 100//
 				+ cal.get(Calendar.DATE));
 	}

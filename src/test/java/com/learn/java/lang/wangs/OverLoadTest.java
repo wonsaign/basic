@@ -12,8 +12,8 @@ public class OverLoadTest {
 //		fi(0);
 //		fi(1);
 //		System.out.println(result);
-		Class<Integer> cz = Integer.TYPE;
-		cz = int.class;
+		// Class<Integer> cz = Integer.TYPE;
+		// cz = int.class;
 		System.out.println(intest());
 	}
 	
