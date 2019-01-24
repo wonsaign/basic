@@ -5,13 +5,16 @@ import java.util.List;
 
 public class NewTry {
 
-	void newTry() {
-//		var x = new ArrayList<String>();
+	static void newTry() {
+		var x = new ArrayList<String>();
 		
-		//List<String> s = List.of("a","b","c");
+		List<String> s = List.of("a","b","c");
 		//x = (ArrayList<String>) s;
 		
-		//System.out.println(x);
+		System.out.println(s);
+	}
+	public static void main(String[] args) {
+		newTry();
 	}
 
 }
