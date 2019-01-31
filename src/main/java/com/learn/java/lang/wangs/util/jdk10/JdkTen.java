@@ -1,7 +1,6 @@
 package com.learn.java.lang.wangs.util.jdk10;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class JdkTen {
 
@@ -11,6 +10,9 @@ public class JdkTen {
 	}
 	public static void main(String[] args) {
 		newTry();
+		int[] a = new int[]{};
+		a[0] = 1;
+		
 	}
 
 }
