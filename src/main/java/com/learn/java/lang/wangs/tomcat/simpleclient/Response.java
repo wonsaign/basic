@@ -1,4 +1,4 @@
-package com.learn.java.lang.wangs.tomcat.connector;
+package com.learn.java.lang.wangs.tomcat.simpleclient;
 
 import java.io.File;
 import java.io.FileInputStream;
