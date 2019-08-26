@@ -8,7 +8,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-
+/**
+ * @Descprition 其实主要是使用socket编程.
+ * socket是tcp网络中一种协议,socket其实是IO流的一种实现
+ * @author wangs
+ *
+ */
 public class HttpServer {
 
     static public final String WEB_ROOT = System.getProperty("user.dir") + java.io.File.separator +
