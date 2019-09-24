@@ -1,4 +1,4 @@
-package com.learn.java.lang.wangs.tomcat.simpleclient;
+package com.learn.java.lang.wangs.tomcat.lesson1.simpleclient;
 
 import java.io.IOException;
 import java.io.InputStream;
