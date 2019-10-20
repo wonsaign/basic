@@ -1,6 +1,6 @@
 package com.learn.java.lang.wangs.pattern.observable;
 
-public class Client {
+public class TestClient {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
