@@ -1,6 +1,7 @@
 package com.learn.java.lang.wangs.base.math;
 
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
@@ -35,6 +36,13 @@ public class BigDecimalTest {
 
 		BigDecimal t = BigDecimal.valueOf(0.2d) ;
 		BigDecimal r0 = z4.divideAndRemainder(t)[0];
+		
+		
+		BigDecimal ten = new BigDecimal(2);
+		BigDecimal three = new BigDecimal(3);
+		
+		System.out.println(ten.divide(three,2,RoundingMode.HALF_DOWN));
+		
 		System.err.println(r0.intValue());
 	}
 }
