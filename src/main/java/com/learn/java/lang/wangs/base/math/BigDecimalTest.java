@@ -8,7 +8,8 @@ import java.text.DecimalFormat;
 public class BigDecimalTest {
 
 	public static void main(String[] args) {
-		testChu();
+		//testChu();
+		testChu2();
 	}
 
 	static void before(){
@@ -45,4 +46,15 @@ public class BigDecimalTest {
 		
 		System.err.println(r0.intValue());
 	}
+	
+    public static void testChu2() {
+        BigDecimal valueOf = BigDecimal.valueOf(1256.4d);
+        int dev = 2000;
+        
+        BigDecimal divideToIntegralValue = valueOf.divideToIntegralValue(BigDecimal.valueOf(dev));
+        BigDecimal remainder = valueOf.remainder(BigDecimal.valueOf(dev));
+        
+        System.out.println(divideToIntegralValue);
+        System.err.println(remainder);
+    }
 }
