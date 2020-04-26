@@ -44,9 +44,15 @@ public class StringTest {
 	}
 	
 	public static void main(String[] args) {
-		StringBuffer sb = new StringBuffer("hello");
-		appendStr(sb);
-		System.out.println(sb.toString());
+//		StringBuffer sb = new StringBuffer("hello");
+//		appendStr(sb);
+//		System.out.println(sb.toString());
+		
+		String a = "1";
+		
+		String b = "12";
+		
+		System.err.println(a.indexOf(b));
 	}
 	
 }

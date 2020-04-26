@@ -9,7 +9,39 @@ public class BigDecimalTest {
 
 	public static void main(String[] args) {
 		//testChu();
-		testChu2();
+		//testChu2();
+		//test3();
+		test4();
+	}
+	
+	public static void test4(){
+	    BigDecimal a = BigDecimal.valueOf(11);
+	    BigDecimal b = BigDecimal.valueOf(11.00);
+	    System.err.println(a.compareTo(b) == 0);
+	}	
+	public static void test3(){
+	    if(null instanceof Integer) {
+	        System.err.println("~~~~~");
+	    }
+	    
+	    BigDecimal a = BigDecimal.valueOf(661);
+	    BigDecimal b = BigDecimal.valueOf(36642);
+	    S s = new S();
+	    //s.setX((a.divide(b, 2, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100))).toString() + "%");
+	    s.setX((BigDecimal.valueOf(0.02).multiply(BigDecimal.valueOf(100))).toString() + "%");
+	    System.err.println(s.getX());
+	}	
+	
+	static class S{
+	    String x;
+
+        public String getX() {
+            return x;
+        }
+
+        public void setX(String x) {
+            this.x = x;
+        }
 	}
 
 	static void before(){

@@ -365,7 +365,6 @@ public class ComplateTests {
 //        handle(new BiFunction<Integer, Throwable, Integer>() {
 //            @Override
 //            public Integer apply(Integer t, Throwable u) {
-//                // TODO 自动生成的方法存根
 //                return null;
 //            }
 //            

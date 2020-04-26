@@ -1,4 +1,4 @@
-package com.learn.java.lang.wangs.base.io.nio;
+package com.learn.java.lang.wangs.base.io.nio2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
