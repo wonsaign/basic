@@ -11,9 +11,19 @@ public class BigDecimalTest {
 		//testChu();
 		//testChu2();
 		//test3();
-		test4();
+		//test4();
+		test5();
 	}
-	
+
+	public static void test5(){
+		BigDecimal a = BigDecimal.valueOf(22154.64);
+		BigDecimal b = BigDecimal.valueOf(1623.00);
+
+		BigDecimal c = a.divide(b, 0, RoundingMode.DOWN);
+
+		System.err.println(c);
+	}
+
 	public static void test4(){
 	    BigDecimal a = BigDecimal.valueOf(11);
 	    BigDecimal b = BigDecimal.valueOf(11.00);
