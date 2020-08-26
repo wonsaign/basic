@@ -6,9 +6,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class ThreadTest{
+public class ThreadTest {
 
-	public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
 //		ExecutorService pool =  Executors.newFixedThreadPool(5);
 //		Thread t1 = new MyThread();  
 //		Thread tt1 = new Thread(new MyThread());
@@ -24,8 +24,8 @@ public class ThreadTest{
 //        pool.execute(t5);  
 //        // 关闭线程池  
 //        pool.shutdown(); 
-		
-		
+
+
 //		ExecutorService pool = Executors.newSingleThreadExecutor();
 //		Future<String> f = pool.submit(new Call());
 //
@@ -40,73 +40,73 @@ public class ThreadTest{
 //			t.setDaemon(true);
 //			t.start();
 //		}
-		// 上面代码可修改为
+        // 上面代码可修改为
 //		ExecutorService pool = Executors.newCachedThreadPool(new DaemonThreadFactory());
 //		for (int i = 0; i < 10; i++) {
 //			pool.execute(new SimpleDaemons());
 //		}
 //		System.out.println("all daemon start");
 //		TimeUnit.MILLISECONDS.sleep(175);
-		
-	//	ExecutorService pool =	Executors.newCachedThreadPool();
-	//	pool.submit(new RunEx());
-		
-	try {
-		@SuppressWarnings("unused")
-		int i = 1/0;
-	} catch (Exception e) {
-		System.out.println(e);
-		System.out.println(e.getMessage());
-		e.printStackTrace();
-	}
+
+        //	ExecutorService pool =	Executors.newCachedThreadPool();
+        //	pool.submit(new RunEx());
+
+        try {
+            @SuppressWarnings("unused")
+            int i = 1 / 0;
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    static void Un() {
+        @SuppressWarnings("unused")
+        Thread.UncaughtExceptionHandler hander = new Thread.UncaughtExceptionHandler() {
+
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                System.out.println(e);
+            }
+        };
+    }
+
+    Thread t = new RunEx();
+
+
 }
 
-static void Un() {
-	@SuppressWarnings("unused")
-	Thread.UncaughtExceptionHandler hander = new Thread.UncaughtExceptionHandler() {
-			
-			@Override
-			public void uncaughtException(Thread t, Throwable e) {
-				System.out.println(e);
-			}
-		};
-	}
-	Thread t = new RunEx();
-	
-	
-	
+class MyThread extends Thread implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("...");
+    }
 }
 
-class MyThread extends Thread implements Runnable{
-	@Override
-	public void run() {
-		System.out.println("...");
-	}
+class Call implements Callable<String> {
+    @Override
+    public String call() throws Exception {
+        return "hello  im callable";
+    }
 }
 
-class Call implements Callable<String>{
-	@Override
-	public String call() throws Exception {
-		return "hello  im callable";
-	}
-}
+class SimpleDaemons implements Runnable {
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                TimeUnit.MILLISECONDS.sleep(100);
+                System.err.println(Thread.currentThread() + ":" + this);
+            }
+        } catch (InterruptedException e) {
 
-class SimpleDaemons implements Runnable{
-	@Override
-	public void run() {
-		try {
-			while(true) {
-				TimeUnit.MILLISECONDS.sleep(100);
-				System.err.println(Thread.currentThread()+":"+this);
-			}
-		} catch (InterruptedException e) {
-			
-		}
-	}
+        }
+    }
 }
 
 class RunEx extends Thread {
- //implements Callable<Object>,Runnable{
+    //implements Callable<Object>,Runnable{
 //	@Override
 //	public Object call() throws Exception {
 //		throw new RuntimeException("我故意出错的");
@@ -116,7 +116,7 @@ class RunEx extends Thread {
 //	public void run() {
 //		throw new RuntimeException("我故意出错的");
 //	}
-	public void run() {
-		throw new RuntimeException("我故意出错的");
-	}
+    public void run() {
+        throw new RuntimeException("我故意出错的");
+    }
 }

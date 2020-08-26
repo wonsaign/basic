@@ -14,7 +14,7 @@ public class JOLTest {
         System.out.println(ClassLayout.parseInstance(a).toPrintable());
     }
 
-    public static class JOLTestClass{
+    public static class JOLTestClass {
         Integer id;
         String name;
     }

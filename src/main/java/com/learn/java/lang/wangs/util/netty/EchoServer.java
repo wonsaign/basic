@@ -10,11 +10,11 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class EchoServer{
+public class EchoServer {
 
     private final int port;
 
-    public EchoServer(int port){
+    public EchoServer(int port) {
         this.port = port;
     }
 
@@ -29,22 +29,22 @@ public class EchoServer{
     public void start() throws Exception {
         final EchoServiceHandle serverHander = new EchoServiceHandle();
         EventLoopGroup group = new NioEventLoopGroup();
-        
-        try{
+
+        try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(group)
-            .channel(NioServerSocketChannel.class)
-            .localAddress(new InetSocketAddress(port))
-            .childHandler(new ChannelInitializer<Channel>() {
-                @Override
-                protected void initChannel(Channel ch) throws Exception {
-                    ch.pipeline().addLast(serverHander);
-                }
-            });
+                    .channel(NioServerSocketChannel.class)
+                    .localAddress(new InetSocketAddress(port))
+                    .childHandler(new ChannelInitializer<Channel>() {
+                        @Override
+                        protected void initChannel(Channel ch) throws Exception {
+                            ch.pipeline().addLast(serverHander);
+                        }
+                    });
             ChannelFuture f = b.bind().sync();
             f.channel().closeFuture().sync();
-        } finally{
-            group.shutdownGracefully().sync(); 
+        } finally {
+            group.shutdownGracefully().sync();
         }
 
     }

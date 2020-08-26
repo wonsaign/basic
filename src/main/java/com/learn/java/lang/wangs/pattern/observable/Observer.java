@@ -2,10 +2,10 @@ package com.learn.java.lang.wangs.pattern.observable;
 
 /**
  * many
- * @author wangs
  *
+ * @author wangs
  */
 public interface Observer {
 
-	void update();
+    void update();
 }

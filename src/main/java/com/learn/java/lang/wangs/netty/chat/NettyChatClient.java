@@ -17,7 +17,7 @@ public class NettyChatClient {
 
     public static void main(String[] args) throws Exception { //客户端需要一个事件循环组
         EventLoopGroup group = new NioEventLoopGroup();
-        try{
+        try {
             //创建客户端启动对象
             //注意客户端使用的不是 ServerBootstrap 而是 Bootstrap
             Bootstrap bootstrap = new Bootstrap();
@@ -35,21 +35,21 @@ public class NettyChatClient {
                             channel.pipeline().addLast(new NettyChatClientHandler());
                         }
                     });
-        System.out.println("netty client start");
-        //启动客户端去连接服务器端
-        //对关闭通道进行监听
-        ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 9000).sync();
+            System.out.println("netty client start");
+            //启动客户端去连接服务器端
+            //对关闭通道进行监听
+            ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 9000).sync();
 
-        Channel channel = channelFuture.channel();
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextLine()){
-            String msg = scanner.nextLine();
-            channel.writeAndFlush(msg);
+            Channel channel = channelFuture.channel();
+            Scanner scanner = new Scanner(System.in);
+            while (scanner.hasNextLine()) {
+                String msg = scanner.nextLine();
+                channel.writeAndFlush(msg);
+            }
+
+            channel.closeFuture().sync();
+        } finally {
+            group.shutdownGracefully();
         }
-
-        channel.closeFuture().sync();
-    } finally {
-        group.shutdownGracefully();
     }
-}
 }

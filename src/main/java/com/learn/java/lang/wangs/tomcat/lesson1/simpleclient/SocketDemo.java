@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class SocketDemo {
-    
+
     @SuppressWarnings("static-access")
     public void sendMsg() {
         Socket socket = null;
@@ -22,38 +22,38 @@ public class SocketDemo {
             PrintWriter pw = new PrintWriter(os, true);
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(
-                    socket.getInputStream()));
-            
+                            socket.getInputStream()));
+
             pw.println("GET /index.html HTTP/1.1");
             pw.println("Host: localhost:8080");
             pw.println("Connection: Close");
             pw.println();
-            
+
             StringBuffer sb = new StringBuffer(8096);
             boolean loop = true;
-            while(loop) {
-                if(br.ready()) {
-                    while(br.read() != -1) {
-                        sb.append((char)br.read());
+            while (loop) {
+                if (br.ready()) {
+                    while (br.read() != -1) {
+                        sb.append((char) br.read());
                     }
                     loop = false;
                 }
                 Thread.currentThread().sleep(50);
             }
-          System.out.println(sb.toString());
+            System.out.println(sb.toString());
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }    
-        
+        }
+
     }
 }

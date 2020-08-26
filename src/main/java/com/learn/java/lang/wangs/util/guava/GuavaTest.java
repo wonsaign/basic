@@ -46,31 +46,31 @@ public class GuavaTest {
     @SuppressWarnings("unused")
     private static void test() {
         Optional<?> o = Optional.of(5);
-		java.util.Optional<?> oo = java.util.Optional.of(5);
-        
+        java.util.Optional<?> oo = java.util.Optional.of(5);
+
         Objects.equal(null, "a");
         java.util.Objects.equals(null, "a");
         ComparisonChain.start().compare(1, 2).compare(2, 3).result();
-		
-		ImmutableSet.of(1,2,3);
-		// 都是静态工厂代替 new 
-		BiMap<Integer, String> bimap = HashBiMap.create();
-		bimap.put(1, "a");
-		bimap.put(2, "b");
-		bimap.put(3, "c");
-		BiMap<String, Integer> invermap = bimap.inverse();
-		for (Entry<String, Integer> i : invermap.entrySet()) {
-			System.err.println(i.getKey()+"-----"+i.getValue());
-		}
-		// 相当于Map<key1,Map<key2,value>>
-		Table<?, ?, ?> table = HashBasedTable.create();
-		// 相当于数据库中的并集
+
+        ImmutableSet.of(1, 2, 3);
+        // 都是静态工厂代替 new
+        BiMap<Integer, String> bimap = HashBiMap.create();
+        bimap.put(1, "a");
+        bimap.put(2, "b");
+        bimap.put(3, "c");
+        BiMap<String, Integer> invermap = bimap.inverse();
+        for (Entry<String, Integer> i : invermap.entrySet()) {
+            System.err.println(i.getKey() + "-----" + i.getValue());
+        }
+        // 相当于Map<key1,Map<key2,value>>
+        Table<?, ?, ?> table = HashBasedTable.create();
+        // 相当于数据库中的并集
         RangeSet<Integer> rs = TreeRangeSet.create();
         // Range 区间函数
-		rs.add(Range.closed(1, 10));
-		rs.add(Range.closedOpen(5, 10));
+        rs.add(Range.closed(1, 10));
+        rs.add(Range.closedOpen(5, 10));
         rs.add(Range.openClosed(9, 15));
-        
+
         List<?> result = Lists.newArrayList();
         PeekingIterator<?> iter = Iterators.peekingIterator(result.iterator());
         iter.peek();// 类似callable中的Future对象,可以预先获取
@@ -78,19 +78,19 @@ public class GuavaTest {
 
     @SuppressWarnings("unused")
     private static void cacheTest() {
-        LoadingCache<String,Integer> graphs = CacheBuilder.newBuilder().maximumSize(1000).build(
-            new CacheLoader<String ,Integer>(){
+        LoadingCache<String, Integer> graphs = CacheBuilder.newBuilder().maximumSize(1000).build(
+                new CacheLoader<String, Integer>() {
                     @Override
                     public Integer load(String key) throws Exception {
                         return null;
                     }
-            });
+                });
     }
 
     @SuppressWarnings("unused")
     private static void joinTest() {
         Joiner j = Joiner.on("").skipNulls();
-        j.join("parts","of","value");
+        j.join("parts", "of", "value");
         // 类似jdk中的String.split方法,但是返回的结果更正确
         Splitter.on("a");
 
@@ -107,6 +107,6 @@ public class GuavaTest {
 
     @SuppressWarnings("unused")
     private static void reflectTest() {
-        
+
     }
 }

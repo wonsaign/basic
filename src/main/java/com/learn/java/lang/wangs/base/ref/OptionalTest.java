@@ -9,7 +9,7 @@ public class OptionalTest {
         t();
     }
 
-    public static void t(){
+    public static void t() {
         //BigDecimal o = BigDecimal.TEN;
         BigDecimal o = null;
         BigDecimal orElse = Optional.ofNullable(o).orElse(BigDecimal.ZERO);

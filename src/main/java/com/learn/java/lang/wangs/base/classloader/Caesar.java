@@ -7,13 +7,13 @@ import java.io.IOException;
 public class Caesar {
 
     public static void main(String[] args) {
-        if(args.length != 3) {
+        if (args.length != 3) {
             System.out.println("Use three test");
             return;
         }
-        
-        try(FileInputStream in = new FileInputStream(args[0])){
-            
+
+        try (FileInputStream in = new FileInputStream(args[0])) {
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

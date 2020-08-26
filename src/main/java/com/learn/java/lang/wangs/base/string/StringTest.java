@@ -36,23 +36,23 @@ public class StringTest {
 //        // {"code":"123456"}
 //        System.out.println(sb.toString());
 //	}
-	
-	static void appendStr(StringBuffer sb) {
-		StringBuffer sc = new StringBuffer();
-		sc = sb;
-		sc.append("world");
-	}
-	
-	public static void main(String[] args) {
+
+    static void appendStr(StringBuffer sb) {
+        StringBuffer sc = new StringBuffer();
+        sc = sb;
+        sc.append("world");
+    }
+
+    public static void main(String[] args) {
 //		StringBuffer sb = new StringBuffer("hello");
 //		appendStr(sb);
 //		System.out.println(sb.toString());
-		
-		String a = "1";
-		
-		String b = "12";
-		
-		System.err.println(a.indexOf(b));
-	}
-	
+
+        String a = "1";
+
+        String b = "12";
+
+        System.err.println(a.indexOf(b));
+    }
+
 }

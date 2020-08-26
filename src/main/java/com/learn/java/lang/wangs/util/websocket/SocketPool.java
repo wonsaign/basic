@@ -10,14 +10,14 @@ import java.util.Set;
 import org.java_websocket.WebSocket;
 
 public class SocketPool {
-	
+
     private static final Map<WebSocket, String> wsUserMap = new HashMap<WebSocket, String>();
-    
-    private static final Map<String,String> messageMap = new HashMap<>();
+
+    private static final Map<String, String> messageMap = new HashMap<>();
 
     /**
      * 通过websocket连接获取其对应的用户
-     * 
+     *
      * @param conn
      * @return
      */
@@ -28,7 +28,7 @@ public class SocketPool {
     /**
      * 根据userName获取WebSocket,这是一个list,此处取第一个
      * 因为有可能多个websocket对应一个userName（但一般是只有一个，因为在close方法中，我们将失效的websocket连接去除了）
-     * 
+     *
      * @param user
      */
     public static WebSocket getWsByUser(String userName) {
@@ -43,15 +43,15 @@ public class SocketPool {
         }
         return null;
     }
-    
+
     public static List<WebSocket> getWsByCode(String userName) {
-    	List<WebSocket> ws = new ArrayList<>();
+        List<WebSocket> ws = new ArrayList<>();
         Set<WebSocket> keySet = wsUserMap.keySet();
         synchronized (keySet) {
             for (WebSocket conn : keySet) {
                 String cuser = wsUserMap.get(conn);
                 if (cuser.equals(userName)) {
-                	ws.add(conn);
+                    ws.add(conn);
                 }
             }
         }
@@ -60,7 +60,7 @@ public class SocketPool {
 
     /**
      * 向连接池中添加连接
-     * 
+     *
      * @param inbound
      */
     public static void addUser(String userName, WebSocket conn) {
@@ -69,7 +69,7 @@ public class SocketPool {
 
     /**
      * 获取所有连接池中的用户，因为set是不允许重复的，所以可以得到无重复的user数组
-     * 
+     *
      * @return
      */
     public static Collection<String> getOnlineUser() {
@@ -83,7 +83,7 @@ public class SocketPool {
 
     /**
      * 移除连接池中的连接
-     * 
+     *
      * @param inbound
      */
     public static boolean removeUser(WebSocket conn) {
@@ -97,7 +97,7 @@ public class SocketPool {
 
     /**
      * 向特定的用户发送数据
-     * 
+     *
      * @param user
      * @param message
      */
@@ -109,7 +109,7 @@ public class SocketPool {
 
     /**
      * 向所有的用户发送消息
-     * 
+     *
      * @param message
      */
     public static void sendMessageToAll(String message) {
@@ -123,11 +123,13 @@ public class SocketPool {
             }
         }
     }
-    public static void putMessage(String userCode ,String message){
+
+    public static void putMessage(String userCode, String message) {
         messageMap.put(userCode, message);
     }
-    public static String getMessage(String userCode){
-       return messageMap.get(userCode);
+
+    public static String getMessage(String userCode) {
+        return messageMap.get(userCode);
     }
-    
+
 }

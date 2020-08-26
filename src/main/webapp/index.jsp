@@ -5,12 +5,12 @@
     <title>Java后端WebSocket的Tomcat实现</title>
 </head>
 <body>
-    Welcome<br/><input id="text" type="text"/>
-    <button onclick="send()">发送消息</button>
-    <hr/>
-    <button onclick="closeWebSocket()">关闭WebSocket连接</button>
-    <hr/>
-    <div id="message"></div>
+Welcome<br/><input id="text" type="text"/>
+<button onclick="send()">发送消息</button>
+<hr/>
+<button onclick="closeWebSocket()">关闭WebSocket连接</button>
+<hr/>
+<div id="message"></div>
 </body>
 
 <script type="text/javascript">
@@ -18,8 +18,7 @@
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
         websocket = new WebSocket("ws://localhost:8080/websocket");
-    }
-    else {
+    } else {
         alert('当前浏览器 Not support websocket')
     }
 

@@ -9,16 +9,16 @@ import java.lang.annotation.Target;
 
 public class RepeatAnnotation {
 
-	@Retention(RUNTIME)
-	@Target(METHOD)
-	public @interface MyAnnotations {
-		MyAnnotation[] value();// 名字必须是value
-	}
-	
-	@Repeatable(value = MyAnnotations.class)
-	@Retention(RUNTIME)
-	@Target(METHOD)
-	public @interface MyAnnotation {
-		String value() default "mytest"; 
-	}
+    @Retention(RUNTIME)
+    @Target(METHOD)
+    public @interface MyAnnotations {
+        MyAnnotation[] value();// 名字必须是value
+    }
+
+    @Repeatable(value = MyAnnotations.class)
+    @Retention(RUNTIME)
+    @Target(METHOD)
+    public @interface MyAnnotation {
+        String value() default "mytest";
+    }
 }

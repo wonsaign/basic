@@ -17,7 +17,7 @@
         <jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"
                         connectionURL="jdbc:jtds:sqlserver://rm-2ze3x3u5f7912m8f2no.sqlserver.rds.aliyuncs.com:3433;DatabaseName=AndySeinDataSource"
                         userId="andisheng"
-                        password="P@ss1234" />
+                        password="P@ss1234"/>
 
         <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
         <javaTypeResolver>
@@ -28,13 +28,14 @@
             targetPackage：生成的实体包位置，默认存放在src目录下
             targetProject：目标工程名-->
         <javaModelGenerator targetPackage="com.jdab.platform.model"
-                            targetProject="platform" />
+                            targetProject="platform"/>
 
         <!-- 实体包对应映射文件位置及名称，默认存放在src目录下 -->
-        <sqlMapGenerator targetPackage="com.jdab.platform.mapping" targetProject="platform/src/main/java" />
+        <sqlMapGenerator targetPackage="com.jdab.platform.mapping" targetProject="platform/src/main/java"/>
         <!--生成Dao类存放位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jdab.platform.dao" targetProject="platform/src/main/java"> 
-        <property name="enableSubPackages" value="true"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jdab.platform.dao"
+                             targetProject="platform/src/main/java">
+            <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
@@ -44,48 +45,48 @@
             enableCountByExample、enableSelectByExample、enableDeleteByExample、enableUpdateByExample、selectByExampleQueryId：
             去除自动生成的例子
         -->
-<!--         
-         <table schema="" 
-              tableName="NetUnitInfo" 
-              domainObjectName="NetUnitInfo" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
-              
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>      
-                     
-       </table> --> 
-     <!--   
-       <table schema="" 
-              tableName="UnitFireCategory" 
-              domainObjectName="UnitFireCategory" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
-              
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> 
-                
-         -->
-    <!--     <table schema="" 
-              tableName="CompanyInfo" 
-              domainObjectName="CompanyInfo" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
-              
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> 
-         -->
+        <!--
+                 <table schema=""
+                      tableName="NetUnitInfo"
+                      domainObjectName="NetUnitInfo"
+                      enableCountByExample="false"
+                      enableSelectByExample="false"
+                      enableDeleteByExample="false"
+                      enableUpdateByExample="false"
+                      selectByExampleQueryId="false" >
+
+                     <property name="ignoreQualifiersAtRuntime" value="true"/>
+                    <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+
+               </table> -->
+        <!--
+          <table schema=""
+                 tableName="UnitFireCategory"
+                 domainObjectName="UnitFireCategory"
+                 enableCountByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+                 enableUpdateByExample="false"
+                 selectByExampleQueryId="false" >
+
+                <property name="ignoreQualifiersAtRuntime" value="true"/>
+               <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+          </table>
+
+            -->
+        <!--     <table schema=""
+                  tableName="CompanyInfo"
+                  domainObjectName="CompanyInfo"
+                  enableCountByExample="false"
+                  enableSelectByExample="false"
+                  enableDeleteByExample="false"
+                  enableUpdateByExample="false"
+                  selectByExampleQueryId="false" >
+
+                 <property name="ignoreQualifiersAtRuntime" value="true"/>
+                <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+           </table>
+             -->
         <!-- <table schema="" 
               tableName="CompanyContact" 
               domainObjectName="CompanyContact" 
@@ -99,82 +100,82 @@
             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
        </table>  
              -->
-<!--        <table schema="" 
-               tableName="UserRole" 
-               domainObjectName="UserRole" 
-               enableCountByExample="false" 
-               enableSelectByExample="false"
-               enableDeleteByExample="false" 
-               enableUpdateByExample="false" 
-               selectByExampleQueryId="false" >
-        </table> -->
-        
-      <!--   <table schema="" 
-              tableName="CompanyBuilding" 
-              domainObjectName="CompanyBuilding" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
-              
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>   -->
-       
-    <!--     <table schema="" 
-              tableName="ElecDetectorConfigHistory" 
-              domainObjectName="ElecDetectorConfigHistory" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
-              
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  
-             -->
-        
-     <!--    <table schema="" 
-              tableName="ElecMonitorParameters" 
-              domainObjectName="ElecMonitorParameters" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
-              
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  
-         -->
-        
-    <!--    <table schema="" 
-              tableName="ElectricDetectorConfig" 
-              domainObjectName="ElectricDetectorConfig" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
-              
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  
+        <!--        <table schema=""
+                       tableName="UserRole"
+                       domainObjectName="UserRole"
+                       enableCountByExample="false"
+                       enableSelectByExample="false"
+                       enableDeleteByExample="false"
+                       enableUpdateByExample="false"
+                       selectByExampleQueryId="false" >
+                </table> -->
+
+        <!--   <table schema=""
+                tableName="CompanyBuilding"
+                domainObjectName="CompanyBuilding"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table>   -->
+
+        <!--     <table schema=""
+                  tableName="ElecDetectorConfigHistory"
+                  domainObjectName="ElecDetectorConfigHistory"
+                  enableCountByExample="false"
+                  enableSelectByExample="false"
+                  enableDeleteByExample="false"
+                  enableUpdateByExample="false"
+                  selectByExampleQueryId="false" >
+
+                 <property name="ignoreQualifiersAtRuntime" value="true"/>
+                <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+           </table>
+                 -->
+
+        <!--    <table schema=""
+                 tableName="ElecMonitorParameters"
+                 domainObjectName="ElecMonitorParameters"
+                 enableCountByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+                 enableUpdateByExample="false"
+                 selectByExampleQueryId="false" >
+
+                <property name="ignoreQualifiersAtRuntime" value="true"/>
+               <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+          </table>
             -->
-       <!--   <table schema="" 
-              tableName="ElectricDetectorMonitor" 
-              domainObjectName="ElectricDetectorMonitor" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  
-         -->
+
+        <!--    <table schema=""
+                  tableName="ElectricDetectorConfig"
+                  domainObjectName="ElectricDetectorConfig"
+                  enableCountByExample="false"
+                  enableSelectByExample="false"
+                  enableDeleteByExample="false"
+                  enableUpdateByExample="false"
+                  selectByExampleQueryId="false" >
+
+                 <property name="ignoreQualifiersAtRuntime" value="true"/>
+                <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+           </table>
+                -->
+        <!--   <table schema=""
+               tableName="ElectricDetectorMonitor"
+               domainObjectName="ElectricDetectorMonitor"
+               enableCountByExample="false"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false" >
+              <property name="ignoreQualifiersAtRuntime" value="true"/>
+             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+        </table>
+          -->
         <!--  <table schema="" 
               tableName="ElectricDevice" 
               domainObjectName="ElectricDevice" 
@@ -186,19 +187,19 @@
  			<property name="ignoreQualifiersAtRuntime" value="true"/>
             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
        </table>   -->
-        
-         <!-- <table schema="" 
-              tableName="ElectricMonitorData" 
-              domainObjectName="ElectricMonitorData" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
+
+        <!-- <table schema=""
+             tableName="ElectricMonitorData"
+             domainObjectName="ElectricMonitorData"
+             enableCountByExample="false"
+             enableSelectByExample="false"
+             enableDeleteByExample="false"
+             enableUpdateByExample="false"
+             selectByExampleQueryId="false" >
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
+           <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+      </table>  -->
+
         <!-- <table schema="" 
               tableName="EnterPriseNature" 
               domainObjectName="EnterPriseNature" 
@@ -210,31 +211,31 @@
  			<property name="ignoreQualifiersAtRuntime" value="true"/>
             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
        </table>  -->
-        
-      <!--   <table schema="" 
-              tableName="FireDetector" 
-              domainObjectName="FireDetector" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
-      <!--   <table schema="" 
-              tableName="FireDevice" 
-              domainObjectName="FireDevice" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
+
+        <!--   <table schema=""
+                tableName="FireDetector"
+                domainObjectName="FireDetector"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table>  -->
+
+        <!--   <table schema=""
+                tableName="FireDevice"
+                domainObjectName="FireDevice"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table>  -->
+
         <!--   <table schema="" 
               tableName="FireMonitorData" 
               domainObjectName="FireMonitorData" 
@@ -246,79 +247,79 @@
  			<property name="ignoreQualifiersAtRuntime" value="true"/>
             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
        </table>  -->
-        
-          <!--  <table schema="" 
-              tableName="MicroDetector" 
-              domainObjectName="MicroDetector" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
-     <!--  <table schema="" 
-              tableName="MicroMonitorData" 
-              domainObjectName="MicroMonitorData" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>   -->
-         
-     <!--   <table schema="" 
-              tableName="Patrol_Photo" 
-              domainObjectName="PatrolPhoto" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>   -->
-        
-     <!--     <table schema="" 
-              tableName="PatrolAppAccount" 
-              domainObjectName="PatrolAppAccount" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  --> 
-        
-      <!--    <table schema="" 
-              tableName="PatrolEquipment" 
-              domainObjectName="PatrolEquipment" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> -->
-        
-         <!-- <table schema="" 
-              tableName="PatrolExecutor" 
-              domainObjectName="PatrolExecutor" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
+
+        <!--  <table schema=""
+            tableName="MicroDetector"
+            domainObjectName="MicroDetector"
+            enableCountByExample="false"
+            enableSelectByExample="false"
+            enableDeleteByExample="false"
+            enableUpdateByExample="false"
+            selectByExampleQueryId="false" >
+           <property name="ignoreQualifiersAtRuntime" value="true"/>
+          <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+     </table>  -->
+
+        <!--  <table schema=""
+                 tableName="MicroMonitorData"
+                 domainObjectName="MicroMonitorData"
+                 enableCountByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+                 enableUpdateByExample="false"
+                 selectByExampleQueryId="false" >
+                <property name="ignoreQualifiersAtRuntime" value="true"/>
+               <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+          </table>   -->
+
+        <!--   <table schema=""
+                 tableName="Patrol_Photo"
+                 domainObjectName="PatrolPhoto"
+                 enableCountByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+                 enableUpdateByExample="false"
+                 selectByExampleQueryId="false" >
+                <property name="ignoreQualifiersAtRuntime" value="true"/>
+               <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+          </table>   -->
+
+        <!--     <table schema=""
+                 tableName="PatrolAppAccount"
+                 domainObjectName="PatrolAppAccount"
+                 enableCountByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+                 enableUpdateByExample="false"
+                 selectByExampleQueryId="false" >
+                <property name="ignoreQualifiersAtRuntime" value="true"/>
+               <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+          </table>  -->
+
+        <!--    <table schema=""
+                tableName="PatrolEquipment"
+                domainObjectName="PatrolEquipment"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table> -->
+
+        <!-- <table schema=""
+             tableName="PatrolExecutor"
+             domainObjectName="PatrolExecutor"
+             enableCountByExample="false"
+             enableSelectByExample="false"
+             enableDeleteByExample="false"
+             enableUpdateByExample="false"
+             selectByExampleQueryId="false" >
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
+           <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+      </table>  -->
+
         <!--  <table schema="" 
               tableName="PatrolPoint" 
               domainObjectName="PatrolPoint" 
@@ -329,69 +330,69 @@
               selectByExampleQueryId="false" >
  			<property name="ignoreQualifiersAtRuntime" value="true"/>
             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> --> 
-        
-      <!--  <table schema="" 
-              tableName="PatrolRule" 
-              domainObjectName="PatrolRule" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> --> 
-        
-       <!--  <table schema="" 
-              tableName="UnitContact" 
-              domainObjectName="UnitContact" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
-      <!--    <table schema="" 
-              tableName="UserRole" 
-              domainObjectName="UserRole" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
-      <!--     <table schema="" 
-              tableName="WaterDetector" 
-              domainObjectName="WaterDetector" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> --> 
-        
-        
-       <!--   <table schema="" 
-              tableName="WaterDevice" 
-              domainObjectName="WaterDevice" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> 
-         -->
+       </table> -->
+
+        <!--  <table schema=""
+                tableName="PatrolRule"
+                domainObjectName="PatrolRule"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table> -->
+
+        <!--  <table schema=""
+               tableName="UnitContact"
+               domainObjectName="UnitContact"
+               enableCountByExample="false"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false" >
+              <property name="ignoreQualifiersAtRuntime" value="true"/>
+             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+        </table>  -->
+
+        <!--    <table schema=""
+                tableName="UserRole"
+                domainObjectName="UserRole"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table>  -->
+
+        <!--     <table schema=""
+                tableName="WaterDetector"
+                domainObjectName="WaterDetector"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table> -->
+
+
+        <!--   <table schema=""
+               tableName="WaterDevice"
+               domainObjectName="WaterDevice"
+               enableCountByExample="false"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false" >
+              <property name="ignoreQualifiersAtRuntime" value="true"/>
+             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+        </table>
+          -->
         <!--  <table schema="" 
               tableName="WaterMonitorData" 
               domainObjectName="WaterMonitorData" 
@@ -402,46 +403,46 @@
               selectByExampleQueryId="false" >
  			<property name="ignoreQualifiersAtRuntime" value="true"/>
             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> --> 
-        
-      <!--    <table schema="" 
-              tableName="UserAppAccount" 
-              domainObjectName="UserAppAccount" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
-<!--         <table schema="" 
-              tableName="PatrolPlan" 
-              domainObjectName="PatrolPlan" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-       
+       </table> -->
 
-       <!-- <table schema="" 
-              tableName="Camera" 
-              domainObjectName="Camera" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-        
-   	 <!-- <table schema="" 
+        <!--    <table schema=""
+                tableName="UserAppAccount"
+                domainObjectName="UserAppAccount"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table>  -->
+
+        <!--         <table schema=""
+                      tableName="PatrolPlan"
+                      domainObjectName="PatrolPlan"
+                      enableCountByExample="false"
+                      enableSelectByExample="false"
+                      enableDeleteByExample="false"
+                      enableUpdateByExample="false"
+                      selectByExampleQueryId="false" >
+                     <property name="ignoreQualifiersAtRuntime" value="true"/>
+                    <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+               </table>  -->
+
+
+        <!-- <table schema=""
+               tableName="Camera"
+               domainObjectName="Camera"
+               enableCountByExample="false"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false" >
+              <property name="ignoreQualifiersAtRuntime" value="true"/>
+             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+        </table>  -->
+
+        <!-- <table schema=""
               tableName="PatrolCommitProblem" 
               domainObjectName="PatrolCommitProblem" 
               enableCountByExample="false" 
@@ -449,92 +450,93 @@
               enableDeleteByExample="false" 
               enableUpdateByExample="false" 
               selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
+             <property name="ignoreQualifiersAtRuntime" value="true"/>
             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
        </table>   -->
-       
-      <!--   <table schema="" 
-              tableName="PatrolPoint" 
-              domainObjectName="PatrolPoint" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>  -->
-       
-     <!--   
-       <table schema="" 
-              tableName="PatrolPointType" 
-              domainObjectName="PatrolPointType" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> -->
-       <!--  <table schema="" 
-              tableName="PatrolPlanPatrolPoint" 
-              domainObjectName="PatrolPlanPatrolPoint" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> -->
-      <!--  
-       <table schema="" 
-              tableName="PatrolCommitProblem" 
-              domainObjectName="PatrolCommitProblem" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> -->
-       
-     <!--    
-       <table schema="" 
-              tableName="ElecMonitorParameters" 
-              domainObjectName="ElecMonitorParameters" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table>
-        -->
-      <!--  <table schema="" 
-              tableName="MicroDetectorType" 
-              domainObjectName="MicroDetectorType" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> -->
-       <table schema="" 
-              tableName="WaterDetectorType" 
-              domainObjectName="WaterDetectorType" 
-              enableCountByExample="false" 
-              enableSelectByExample="false"
-              enableDeleteByExample="false" 
-              enableUpdateByExample="false" 
-              selectByExampleQueryId="false" >
- 			<property name="ignoreQualifiersAtRuntime" value="true"/>
-            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>               
-       </table> 
+
+        <!--   <table schema=""
+                tableName="PatrolPoint"
+                domainObjectName="PatrolPoint"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table>  -->
+
+        <!--
+          <table schema=""
+                 tableName="PatrolPointType"
+                 domainObjectName="PatrolPointType"
+                 enableCountByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+                 enableUpdateByExample="false"
+                 selectByExampleQueryId="false" >
+                <property name="ignoreQualifiersAtRuntime" value="true"/>
+               <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+          </table> -->
+        <!--  <table schema=""
+               tableName="PatrolPlanPatrolPoint"
+               domainObjectName="PatrolPlanPatrolPoint"
+               enableCountByExample="false"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false" >
+              <property name="ignoreQualifiersAtRuntime" value="true"/>
+             <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+        </table> -->
+        <!--
+         <table schema=""
+                tableName="PatrolCommitProblem"
+                domainObjectName="PatrolCommitProblem"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table> -->
+
+        <!--
+          <table schema=""
+                 tableName="ElecMonitorParameters"
+                 domainObjectName="ElecMonitorParameters"
+                 enableCountByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+                 enableUpdateByExample="false"
+                 selectByExampleQueryId="false" >
+                <property name="ignoreQualifiersAtRuntime" value="true"/>
+               <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+          </table>
+           -->
+        <!--  <table schema=""
+                tableName="MicroDetectorType"
+                domainObjectName="MicroDetectorType"
+                enableCountByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+                enableUpdateByExample="false"
+                selectByExampleQueryId="false" >
+               <property name="ignoreQualifiersAtRuntime" value="true"/>
+              <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL" identity="false"></generatedKey>
+         </table> -->
+        <table schema=""
+               tableName="WaterDetectorType"
+               domainObjectName="WaterDetectorType"
+               enableCountByExample="false"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false">
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
+            <generatedKey column="ID" sqlStatement="SELECT SEQ_JC_DEVICE_CCTV.NEXTVAL FROM DUAL"
+                          identity="false"></generatedKey>
+        </table>
     </context>
 </generatorConfiguration>

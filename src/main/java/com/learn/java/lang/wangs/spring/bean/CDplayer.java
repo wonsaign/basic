@@ -10,14 +10,14 @@ import org.springframework.stereotype.Component;
 //@Configuration
 @Component
 //@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-@PropertySource(value = { "classpath:config.propertities" })
+@PropertySource(value = {"classpath:config.propertities"})
 
 public class CDplayer {
-	@Autowired
-	Environment env;
-	
-	void say() {
-		env.getProperty("CD.name");
-		env.getProperty("CD.date");
-	}
+    @Autowired
+    Environment env;
+
+    void say() {
+        env.getProperty("CD.name");
+        env.getProperty("CD.date");
+    }
 }

@@ -4,25 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-public class StudyBoard extends Observable implements Subject{
-	
-	List<Observer> obs = new ArrayList<>();;
+public class StudyBoard extends Observable implements Subject {
 
-	@Override
-	public void registObs(Observer o) {
-		obs.add(o);
-	}
+    List<Observer> obs = new ArrayList<>();
+    ;
 
-	@Override
-	public void removetObs(Observer o) {
-		obs.remove(o);
-	}
+    @Override
+    public void registObs(Observer o) {
+        obs.add(o);
+    }
 
-	@Override
-	public void nofifyObs() {
-		for (Observer observer : obs) {
-			observer.update();
-		}
-	}
+    @Override
+    public void removetObs(Observer o) {
+        obs.remove(o);
+    }
+
+    @Override
+    public void nofifyObs() {
+        for (Observer observer : obs) {
+            observer.update();
+        }
+    }
 
 }

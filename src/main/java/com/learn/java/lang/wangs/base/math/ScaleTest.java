@@ -2,21 +2,22 @@ package com.learn.java.lang.wangs.base.math;
 
 /**
  * 进制算法
- * @author wangsai
  *
+ * @author wangsai
  */
 public class ScaleTest {
 
-    
+
     public static void main(String[] args) {
 //        fiveScale(123);
 //        fiveScaleToTen(443);
         fiveScale(6);
         fiveScaleToTen(11);
     }
-    
+
     /**
      * 10进制转5进制
+     *
      * @author wangsai
      * @date 2020年2月4日 下午2:55:31
      */
@@ -29,19 +30,19 @@ public class ScaleTest {
         int yushu = 0;
         do {
             yushu = i % 5;
-            i = i / 5 ;
+            i = i / 5;
             s = String.valueOf(yushu) + s;
         } while (i >= 5);
-        
+
         // 补位处理
-        if(i > 5 && i == 0) {
+        if (i > 5 && i == 0) {
             s = "1" + s;
-        }else {
+        } else {
             s = String.valueOf(i) + s;
         }
         System.err.println(Integer.valueOf(s));
     }
-    
+
     public static void fiveScaleToTen(int num) {
         String s = String.valueOf(num);
         int scale = 5;
@@ -51,11 +52,11 @@ public class ScaleTest {
         for (int i = charArray.length - 1; i >= 0; i--) {
             int mup = 1;
             for (int j = i; j > 0; j--) {
-                if(j != 0) {
+                if (j != 0) {
                     mup *= scale;
                 }
             }
-            
+
             int sx = Integer.valueOf(String.valueOf(charArray[charArray.length - i - 1]));
             total = total + mup * sx;
         }

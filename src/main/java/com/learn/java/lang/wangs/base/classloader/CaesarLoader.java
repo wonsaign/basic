@@ -6,15 +6,15 @@ import java.nio.file.Paths;
 
 /**
  * 凯撒加密类加载器
- * @author wangsai
  *
+ * @author wangsai
  */
 
-public class CaesarLoader extends ClassLoader{
+public class CaesarLoader extends ClassLoader {
 
     private int k;
-    
-    
+
+
     public CaesarLoader(int k) {
         super();
         this.k = k;
@@ -30,7 +30,7 @@ public class CaesarLoader extends ClassLoader{
             byte[] loadClassByte = loadClassByte(name);
             // TODO 2 调用CLassLoader超类的defineClass，向虚拟机【提供字节码】
             Class<?> defineClass = super.defineClass(name, loadClassByte, 0, loadClassByte.length);
-            if(defineClass == null) {
+            if (defineClass == null) {
                 throw new ClassNotFoundException();
             }
             return defineClass;
@@ -42,20 +42,21 @@ public class CaesarLoader extends ClassLoader{
 
     /**
      * 找到指定文件，加载，返回字节码
+     *
      * @param name
      * @return
-     * @throws IOException 
+     * @throws IOException
      */
     private byte[] loadClassByte(String name) throws IOException {
         String cname = name.replace(".", "/") + ".caeser";
-        
+
         byte[] readAllBytes = Files.readAllBytes(Paths.get(cname));
-        
+
         for (int i = 0; i < readAllBytes.length; i++) {
-            readAllBytes[i] = (byte)(readAllBytes[i] - k);
+            readAllBytes[i] = (byte) (readAllBytes[i] - k);
         }
-        
+
         return readAllBytes;
     }
-    
+
 }

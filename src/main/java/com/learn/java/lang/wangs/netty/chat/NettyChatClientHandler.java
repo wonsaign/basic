@@ -27,7 +27,8 @@ public class NettyChatClientHandler extends SimpleChannelInboundHandler<String> 
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception { Scanner scanner = new Scanner(System.in);
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        Scanner scanner = new Scanner(System.in);
         ctx.writeAndFlush("客户端上线了");
     }
 

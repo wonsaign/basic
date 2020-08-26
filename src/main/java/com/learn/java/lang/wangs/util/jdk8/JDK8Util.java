@@ -17,28 +17,33 @@ public class JDK8Util {
         System.err.println("hello world");
     }
 
-    static Supplier<?> SupplierTest(){
+    static Supplier<?> SupplierTest() {
         @SuppressWarnings("unused")
         A a = new A();
         Supplier<A> s0 = A::valueOfA; // lambda表达式必须是接口
-        Supplier<A> s1 = () -> A.valueOfInt(new int[]{1,2,3}); // lambda表达式必须是接口
+        Supplier<A> s1 = () -> A.valueOfInt(new int[]{1, 2, 3}); // lambda表达式必须是接口
         //Supplier<A> s2 = () -> a::valueOfInt;// 函数式接口必须有参数,比如(a),才可以使用这个
         Objects.requireNonNull(s0.get());
         return s1;
     }
 }
-class  A {
-    static A valueOfA(){
+
+class A {
+    static A valueOfA() {
         return new A();
     }
-    static A valueOfInt(int[] a){
+
+    static A valueOfInt(int[] a) {
         return new A(a);
     }
-    public A(){
+
+    public A() {
         super();
     }
-    int [] a;
-    public A(int[] a){
+
+    int[] a;
+
+    public A(int[] a) {
         this.a = a;
     }
 }

@@ -10,12 +10,12 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-public class EchoClient{
+public class EchoClient {
 
     private final String host;
     private final int port;
 
-    public EchoClient(String host, int port){
+    public EchoClient(String host, int port) {
         this.port = port;
         this.host = host;
     }
@@ -25,22 +25,23 @@ public class EchoClient{
         try {
             Bootstrap b = new Bootstrap();
             b.group(group)
-            .channel(NioSocketChannel.class)
-            .remoteAddress(new InetSocketAddress(host, port))
-            .handler(new ChannelInitializer<SocketChannel>(){
-                @Override
-                protected void initChannel(SocketChannel ch) throws Exception {
-                    ch.pipeline().addLast(new EchoClientHandler());
-                }
-            });
+                    .channel(NioSocketChannel.class)
+                    .remoteAddress(new InetSocketAddress(host, port))
+                    .handler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        protected void initChannel(SocketChannel ch) throws Exception {
+                            ch.pipeline().addLast(new EchoClientHandler());
+                        }
+                    });
             ChannelFuture f = b.connect().sync();
             f.channel().closeFuture().sync();
         } catch (Exception e) {
-        } finally{
+        } finally {
             group.shutdownGracefully().sync();
         }
 
     }
+
     public static void main(String[] args) throws Exception {
         // if(args.length != 1){
         //     System.err.println("Usage"+ EchoServer.class.getSimpleName()+ "<port>");

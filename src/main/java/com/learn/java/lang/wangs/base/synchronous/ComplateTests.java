@@ -16,39 +16,39 @@ import java.util.concurrent.Executors;
 
 public class ComplateTests {
 
-    
-    private static ExecutorService pool =  Executors.newFixedThreadPool(5);
-    
+
+    private static ExecutorService pool = Executors.newFixedThreadPool(5);
+
     private static CompletionService<String> completionService = new ExecutorCompletionService<String>(pool);
-    
+
     private static KeySetView<String, Boolean> threadIdSet = ConcurrentHashMap.<String>newKeySet();
-    
-    private static String[] studentPool = {"0","1","2","3","4","5","6","7","8","9","10","11",
-            "John","Tom","Kim","Jack","Rose","MrKang","Wangs","John","Tom","Jack","Luence",
-            "Sakura","Naruto","Saseiki","Kakasi","John","Tom","Rose",
-            "John","Tom","Kim","Jack","Rose","MrKang","Wangs","John","Tom","Jack","Luence",
-            "Sakura","Naruto","Saseiki","Kakasi","John","Tom","Rose",
-            "John","Tom","Kim","Jack","Rose","MrKang","Wangs","John","Tom","Jack","Luence",
-            "Sakura","Naruto","Saseiki","Kakasi","John","Tom","Rose",
-            "John","Tom","Kim","Jack","Rose","MrKang","Wangs","John","Tom","Jack","Luence",
-            "Sakura","Naruto","Saseiki","Kakasi","John","Tom","Rose",
-            "John","Tom","Kim","Jack","Rose","MrKang","Wangs","John","Tom","Jack","Luence",
-            "Sakura","Naruto","Saseiki","Kakasi","John","Tom","Rose",
-            "John","Tom","Kim","Jack","Rose","MrKang","Wangs","John","Tom","Jack","Luence",
-            "Sakura","Naruto","Saseiki","Kakasi","John","Tom","Rose",
-            "John","Tom","Kim","Jack","Rose","MrKang","Wangs","John","Tom","Jack","Luence",
-            "Sakura","Naruto","Saseiki","Kakasi","John","Tom","Rose"};
-    
+
+    private static String[] studentPool = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
+            "John", "Tom", "Kim", "Jack", "Rose", "MrKang", "Wangs", "John", "Tom", "Jack", "Luence",
+            "Sakura", "Naruto", "Saseiki", "Kakasi", "John", "Tom", "Rose",
+            "John", "Tom", "Kim", "Jack", "Rose", "MrKang", "Wangs", "John", "Tom", "Jack", "Luence",
+            "Sakura", "Naruto", "Saseiki", "Kakasi", "John", "Tom", "Rose",
+            "John", "Tom", "Kim", "Jack", "Rose", "MrKang", "Wangs", "John", "Tom", "Jack", "Luence",
+            "Sakura", "Naruto", "Saseiki", "Kakasi", "John", "Tom", "Rose",
+            "John", "Tom", "Kim", "Jack", "Rose", "MrKang", "Wangs", "John", "Tom", "Jack", "Luence",
+            "Sakura", "Naruto", "Saseiki", "Kakasi", "John", "Tom", "Rose",
+            "John", "Tom", "Kim", "Jack", "Rose", "MrKang", "Wangs", "John", "Tom", "Jack", "Luence",
+            "Sakura", "Naruto", "Saseiki", "Kakasi", "John", "Tom", "Rose",
+            "John", "Tom", "Kim", "Jack", "Rose", "MrKang", "Wangs", "John", "Tom", "Jack", "Luence",
+            "Sakura", "Naruto", "Saseiki", "Kakasi", "John", "Tom", "Rose",
+            "John", "Tom", "Kim", "Jack", "Rose", "MrKang", "Wangs", "John", "Tom", "Jack", "Luence",
+            "Sakura", "Naruto", "Saseiki", "Kakasi", "John", "Tom", "Rose"};
+
     private static ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
-        
+
         /** ----------------------------Multi Thread--------- **/
-        
+
 //        for (int i = 0; i < 1; i++) {
 //            threadTest();
 //        }
-        
+
         //threadTest();
         for (int i = 0; i < 3; i++) {
             completionService.submit(new Task(i));
@@ -59,28 +59,32 @@ public class ComplateTests {
             } catch (InterruptedException e) {
             }
         }
-        
-        
-        if(true) {
+
+
+        if (true) {
             @SuppressWarnings("unused")
-            int i = 1>>2;
+            int i = 1 >> 2;
             @SuppressWarnings("unused")
-            int ii = 2>>2;
+            int ii = 2 >> 2;
         }
     }
-    
-    public static class Task implements Callable<String>{
-        
+
+    public static class Task implements Callable<String> {
+
         private int i;
-        
-        public int getI() {return i;}
-        
-        public Task(int i) {this.i = i;}
+
+        public int getI() {
+            return i;
+        }
+
+        public Task(int i) {
+            this.i = i;
+        }
 
         @Override
         public String call() throws Exception {
             final Set<String> removes = new HashSet<>();
-            
+
             List<Callable<String>> cs = new ArrayList<>();
             for (int i = 0; i < 200; i++) {
                 Callable<String> c = new Callable<String>() {
@@ -95,22 +99,23 @@ public class ComplateTests {
                         } catch (Exception e) {
                             throw new RuntimeException(e.getMessage() + Thread.currentThread().getName() + "给我错最开始");
                         }
-                        return studentPool[(int)tid];
+                        return studentPool[(int) tid];
                     }
                 };
                 cs.add(c);
             }
-            
+
             // run 匿名Runnable 不支持返回值
-            
+
             CompletableFuture.runAsync(() -> {
-                for(int i = 0;i < 10000000;i++){
-                    map.put(String.valueOf(i),"我是"+ i);
+                for (int i = 0; i < 10000000; i++) {
+                    map.put(String.valueOf(i), "我是" + i);
                 }
                 System.err.println("---------第一步线程：" + Thread.currentThread().getName());
                 for (Callable<String> task : cs) {
                     completionService.submit(task);
-                };
+                }
+                ;
                 for (@SuppressWarnings("unused") Callable<String> callable : cs) {
                     try {
                         removes.add(completionService.take().get());
@@ -119,41 +124,41 @@ public class ComplateTests {
                         throw new RuntimeException(e.getMessage() + Thread.currentThread().getName() + "给我错最开始");
                     }
                 }
-            }).handle((t, u)-> {
-                if(map.size() == 10000000) {
+            }).handle((t, u) -> {
+                if (map.size() == 10000000) {
                     System.err.println("---------第二步线程：" + map.size());
                 }
-                if(u != null) {
+                if (u != null) {
                     System.out.println("我是谁");
-                    throw new RuntimeException(Thread.currentThread().getName() + u.getMessage()+ "再然后");
+                    throw new RuntimeException(Thread.currentThread().getName() + u.getMessage() + "再然后");
                 }
                 for (String temp : removes) {
-                    System.err.println("清空完成的学生=" + temp + "----" +Thread.currentThread().getName());
+                    System.err.println("清空完成的学生=" + temp + "----" + Thread.currentThread().getName());
                     // catch exception 回滚
-                    if(u == null) {
+                    if (u == null) {
                         threadIdSet.remove(temp);
                     }
                 }
                 System.err.println("当前线程" + Thread.currentThread().getName() + "缓存中还剩下的空间=" + threadIdSet.size());
                 return null;
-            }).whenCompleteAsync((t, u)->{
-                if(u != null) {
-                    String customerMsg = "ErrorHappen:" + u.getMessage();
-                    System.out.println("我错了=" + i + "------" + customerMsg);
-                    throw new RuntimeException(Thread.currentThread().getName() + customerMsg + "到最后");
-                }
-                System.out.println("我完成了=" + Thread.currentThread().getName());
-                }
+            }).whenCompleteAsync((t, u) -> {
+                        if (u != null) {
+                            String customerMsg = "ErrorHappen:" + u.getMessage();
+                            System.out.println("我错了=" + i + "------" + customerMsg);
+                            throw new RuntimeException(Thread.currentThread().getName() + customerMsg + "到最后");
+                        }
+                        System.out.println("我完成了=" + Thread.currentThread().getName());
+                    }
             );
             return "";
         }
-        
+
     }
-    
+
     static void threadTest() {
-        
+
         final Set<String> removes = new HashSet<>();
-        
+
         List<Callable<String>> cs = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Callable<String> c = new Callable<String>() {
@@ -162,9 +167,9 @@ public class ComplateTests {
                     long tid = Thread.currentThread().getId();
                     System.err.println(tid);
                     try {
-                        if(tid % 2 == 0) {
+                        if (tid % 2 == 0) {
                             throw new RuntimeException(Thread.currentThread().getId() + "奥数报错" + tid);
-                        }   
+                        }
 //                        // 查
 //                        String stuName = studentPool[(int)tid];
 //                        // 存
@@ -174,24 +179,25 @@ public class ComplateTests {
 //                        };
                         //System.out.println("我完成了,我没报错"+ tid);
                     } catch (Exception e) {
-                       // 加业务回滚
-                       //System.err.println("我要回滚了，因为=>"+e.getMessage());
+                        // 加业务回滚
+                        //System.err.println("我要回滚了，因为=>"+e.getMessage());
                         //System.out.println("我在哪儿");
                         throw new RuntimeException(e.getMessage() + Thread.currentThread().getName() + "给我错最开始");
                     }
-                    return studentPool[(int)tid];
+                    return studentPool[(int) tid];
                 }
             };
             cs.add(c);
         }
-        
+
         // run 匿名Runnable 不支持返回值
-        
+
         CompletableFuture.runAsync(() -> {
             // System.err.println("---------第一步线程：" + Thread.currentThread().getName());
             for (Callable<String> task : cs) {
                 completionService.submit(task);
-            };
+            }
+            ;
             for (@SuppressWarnings("unused") Callable<String> callable : cs) {
                 try {
                     removes.add(completionService.take().get());
@@ -200,28 +206,28 @@ public class ComplateTests {
                     throw new RuntimeException(e.getMessage() + Thread.currentThread().getName() + "给我错最开始");
                 }
             }
-        }).handle((t, u)-> {
-          if(u != null) {
-              System.out.println("我是水");
-              throw new RuntimeException(Thread.currentThread().getName() + u.getMessage()+ "再然后");
-          }
-          for (String temp : removes) {
-              System.err.println("清空完成的学生=" + temp + "----" +Thread.currentThread().getName());
-              // catch exception 回滚
-              if(u == null) {
-                  threadIdSet.remove(temp);
-              }
-          }
-          System.err.println("当前线程" + Thread.currentThread().getName() + "缓存中还剩下的空间=" + threadIdSet.size());
-          return null;
-        }).whenCompleteAsync((t, u)->{
-            if(u != null) {
-                String customerMsg = "ErrorHappen:" + u.getMessage();
-                System.out.println("我错了=" + customerMsg);
-                throw new RuntimeException(Thread.currentThread().getName() + customerMsg + "到最后");
+        }).handle((t, u) -> {
+            if (u != null) {
+                System.out.println("我是水");
+                throw new RuntimeException(Thread.currentThread().getName() + u.getMessage() + "再然后");
             }
-            System.out.println("我完成了=" + Thread.currentThread().getName());
+            for (String temp : removes) {
+                System.err.println("清空完成的学生=" + temp + "----" + Thread.currentThread().getName());
+                // catch exception 回滚
+                if (u == null) {
+                    threadIdSet.remove(temp);
+                }
             }
+            System.err.println("当前线程" + Thread.currentThread().getName() + "缓存中还剩下的空间=" + threadIdSet.size());
+            return null;
+        }).whenCompleteAsync((t, u) -> {
+                    if (u != null) {
+                        String customerMsg = "ErrorHappen:" + u.getMessage();
+                        System.out.println("我错了=" + customerMsg);
+                        throw new RuntimeException(Thread.currentThread().getName() + customerMsg + "到最后");
+                    }
+                    System.out.println("我完成了=" + Thread.currentThread().getName());
+                }
         );
     }
 
@@ -291,9 +297,9 @@ public class ComplateTests {
 //            }
 //        });
     }
-    
+
     static void threadThinkings() {
-        
+
 //        KeySetView<String, Boolean> threadIdSet = ConcurrentHashMap.<String>newKeySet();
 //        final Set<String> removes = new HashSet<>();
 //        
@@ -322,16 +328,16 @@ public class ComplateTests {
 //            };
 //            cs.add(c);
 //        }
-        
-        
+
+
         // way one 
         // 如果第一个任务时间过长，可能后面都要等待，变成串行
 //            List<Future<Object>> invokeAll = pool.invokeAll(cs);
 //            for (Future<Object> future : invokeAll) {
 //                future.get(0, TimeUnit.SECONDS);
 //            }
-        
-        
+
+
         // way two 
         // 使用blockingqueue作为阻塞队列，但是结果与上面貌似类似啊，都是串行
 //        completionService = new ExecutorCompletionService<Integer>(pool);
@@ -348,8 +354,8 @@ public class ComplateTests {
 //            e.printStackTrace();
 //        }
 //        
-        
-        
+
+
         // way three
         // supply 支持返回值
 //        CompletableFuture.supplyAsync(() -> 200 , pool)
@@ -375,6 +381,6 @@ public class ComplateTests {
 //                System.err.println("任务 完成");
 //            }
 //        });
-        
+
     }
 }

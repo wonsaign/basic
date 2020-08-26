@@ -9,26 +9,25 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
+ * @author wangs
  * @Descprition 其实主要是使用socket编程.
  * socket是tcp网络中一种协议,socket其实是IO流的一种实现
- * @author wangs
- *
  */
 public class HttpServer {
 
     static public final String WEB_ROOT = System.getProperty("user.dir") + java.io.File.separator +
             "webroot";
-    
+
     private boolean shutdown = false;
-    
+
     static private final String SHUTDOWN_COMMAND = "/shutdown";
-    
+
     public static void main(String[] args) {
         System.err.println("starting");
         HttpServer hs = new HttpServer();
         hs.await();
     }
-    
+
     private void await() {
         ServerSocket server = null;
         try {
@@ -39,32 +38,32 @@ public class HttpServer {
             e.printStackTrace();
             System.exit(1);
         }
-        while(!shutdown) {
+        while (!shutdown) {
             Socket socket = null;
             InputStream in = null;
             OutputStream out = null;
-            
+
             try {
                 socket = server.accept();
                 in = socket.getInputStream();
                 out = socket.getOutputStream();
-                
+
                 Request request = new Request(in);
                 request.parse();
-                
+
                 Response response = new Response(out);
                 response.setRequest(request);
                 response.sendStaticResource();
-                
+
                 socket.close();
-                
+
                 // shutdown = true;
                 shutdown = request.getUri().equals(SHUTDOWN_COMMAND);
-                
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            
+
         }
     }
 }

@@ -1,11 +1,11 @@
 package com.learn.java.lang.wangs.pattern.proxy;
 
-public class TestImpl implements Test{
+public class TestImpl implements Test {
 
-	@Override
-	public String hello() {
-		System.out.println("hello");
-		return null;
-	}
+    @Override
+    public String hello() {
+        System.out.println("hello");
+        return null;
+    }
 
 }

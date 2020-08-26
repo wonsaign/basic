@@ -31,7 +31,7 @@ public class NettyChatServerHandler extends SimpleChannelInboundHandler<String> 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
-        channelGroup.writeAndFlush("客户端"+channel.remoteAddress()+"上线了");
+        channelGroup.writeAndFlush("客户端" + channel.remoteAddress() + "上线了");
         channelGroup.add(channel);
     }
 
@@ -49,8 +49,16 @@ public class NettyChatServerHandler extends SimpleChannelInboundHandler<String> 
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
         System.out.println("服务器读取线程 " + Thread.currentThread().getName());
         //ctx.writeAndFlush(msg);
-        channelGroup.writeAndFlush(msg);
+        channelGroup.forEach(ch -> {
+            if (ctx.channel() != ch) {
+                ch.writeAndFlush("发给别人" + msg);
+            } else {
+                ch.writeAndFlush("发给自己" + msg);
+            }
+        });
+        //channelGroup.writeAndFlush(msg);
     }
+
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         super.channelReadComplete(ctx);

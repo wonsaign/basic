@@ -7,7 +7,7 @@ public class ShowSystem {
         for (String p : paths) {
             System.out.println(p);
         }
-        
+
         //ClassLoader.getResources();
     }
 }
