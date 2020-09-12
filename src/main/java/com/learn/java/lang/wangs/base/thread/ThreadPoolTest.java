@@ -7,6 +7,7 @@ public class ThreadPoolTest {
 
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newCachedThreadPool();
+        ExecutorService executorService2 = Executors. newFixedThreadPool(20);
 
         executorService.execute(null);
     }
