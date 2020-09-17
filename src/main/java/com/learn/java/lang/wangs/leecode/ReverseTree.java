@@ -29,11 +29,11 @@ public class ReverseTree {
      * 使用任何一种树的遍历方式都可以，然后遍历的时候，左右节点交换即可。
      */
 
-    public static void frontForceach(BinarySearchTree.Node element){
+    public static void frontForceach(Node element){
         if(element == null){
             return;
         }
-        BinarySearchTree.Node temp = element.left;
+        Node temp = element.left;
         element.left = element.right;
         element.right = temp;
 
