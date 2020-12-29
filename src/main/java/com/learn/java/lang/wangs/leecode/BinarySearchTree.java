@@ -18,7 +18,7 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 
     public void add(E e){
         if(element == null){
-            element = new Node(null, e);
+            element = createNode(null, e);
             root = element;
             size++;
             return;
@@ -41,15 +41,26 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
             }
         }
         // 现在要挂载节点,需要parent
-        Node newNode = new Node(parentNode, e);
+        //Node newNode = new Node(parentNode, e);
+        Node newNode = createNode(parentNode, e);
         if(c < 0){
             parentNode.left = newNode;
         }else {
             parentNode.right = newNode;
         }
         size++;
+
+
+        afferAdd(newNode);
     }
 
+    // 模版替换
+    protected Node<E> createNode(Node<E> parent, E e){
+        return new Node(null, e);
+    }
+
+    protected void afferAdd(Node<E> e) {
+    }
 
 
     public void del(E element){
@@ -67,6 +78,7 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
         }
         delLeaf(delNode);
         delOneSide(delNode);
+        size--;
     }
 
     // 删除叶子节点

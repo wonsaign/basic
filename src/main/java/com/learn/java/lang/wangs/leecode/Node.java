@@ -21,4 +21,20 @@ public class Node<E> {
         }
         return 0;
     }
+
+    /**
+     * 当前节点，是父节点的左子树
+     * @return
+     */
+    public boolean isLeftChild(){
+        return parent != null && this == parent.left;
+    }
+
+    /**
+     * 当前节点，是父节点的右子树
+     * @return
+     */
+    public boolean isRightChild(){
+        return parent != null && this == parent.right;
+    }
 }

@@ -1,4 +1,4 @@
-package com.learn.java.lang.wangs.leecode;
+package com.learn.java.lang.wangs.leecode.questionbank;
 
 public class Leecode_287 {
 
