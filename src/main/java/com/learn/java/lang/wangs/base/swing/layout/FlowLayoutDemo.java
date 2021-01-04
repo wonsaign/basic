@@ -5,6 +5,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
+
+/**
+ * 流式边框
+ */
 public class FlowLayoutDemo
 {
     public static void main(String[] agrs)

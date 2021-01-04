@@ -6,6 +6,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.*;
+
+/**
+ * 卡片边框
+ * @author wangsai
+ */
 public class CardLayoutDemo
 {
     public static void main(String[] agrs){

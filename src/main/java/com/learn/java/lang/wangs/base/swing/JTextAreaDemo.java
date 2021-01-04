@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+/**
+ * 文本域
+ * @author wangsai
+ */
 public class JTextAreaDemo
 {
     public static void main(String[] agrs)

@@ -7,6 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+/**
+ * 单选组件，但是好像有bug
+ * @author wangsai
+ */
 public class JRadioButtonDemo {
 
     public static void main(String[] agrs) {

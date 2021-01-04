@@ -5,8 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 /**
- * @author wangsai
  * 文本框
+ * @author wangsai
  */
 public class JTextFieldDemo {
 

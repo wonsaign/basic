@@ -4,6 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+
+/**
+ * 列表
+ * @author wangsai
+ */
 public class JListDemo
 {
     public static void main(String[] args)

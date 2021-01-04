@@ -4,6 +4,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+
+/**
+ * 标签
+ * @author wangsai
+ */
 public class JLabelDemo
 {
     public static void main(String[] agrs)

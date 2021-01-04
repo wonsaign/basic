@@ -8,6 +8,7 @@ import java.awt.*;
 
 /**
  * 边框布局管理器
+ * @author wangsai
  */
 public class BorderLayoutDemo {
     public static void main(String[] agrs) {

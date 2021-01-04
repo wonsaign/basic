@@ -6,6 +6,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.*;
+
+/**
+ * 网格边框
+ * @author wangsai
+ */
 public class GridLayoutDemo {
 
     public static void main(String[] args) {

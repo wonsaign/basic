@@ -7,6 +7,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+
+
+/**
+ * 带下拉框带列表
+ * @author wangsai
+ */
 public class JListDemo1 extends JFrame
 {
     public JListDemo1()

@@ -8,6 +8,10 @@ import javax.swing.JTextField;
 import java.awt.*;
 
 
+/**
+ * 网格边框
+ * @author wangsai
+ */
 public class GridBagLayoutDemo {
 
     //向JFrame中添加JButton按钮

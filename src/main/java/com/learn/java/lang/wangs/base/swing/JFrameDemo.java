@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.*;
 
+/**
+ * Frame
+ */
 public class JFrameDemo extends JFrame {
 
     public JFrameDemo() {

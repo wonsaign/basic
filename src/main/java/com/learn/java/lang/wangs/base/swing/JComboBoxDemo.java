@@ -4,6 +4,10 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+/**
+ * 下拉框
+ */
 public class JComboBoxDemo
 {
 
