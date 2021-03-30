@@ -1,7 +1,5 @@
 package com.learn.java.lang.wangs.obj;
 
-import java.util.Collection;
-import java.util.Optional;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -29,6 +27,8 @@ public class Oeq {
             bq.poll();
         }
 
+
+        System.out.println("你好 傻子");
         System.out.println(bq);
     }
 }

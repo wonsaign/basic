@@ -10,6 +10,9 @@ public class Ref {
         f.setAccessible(true);
         f.setInt(r, 30);
         System.out.println(r.getI());
+
+
+
     }
 
 }

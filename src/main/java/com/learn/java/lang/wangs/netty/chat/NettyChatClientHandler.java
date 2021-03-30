@@ -10,6 +10,9 @@ import io.netty.util.CharsetUtil;
 import java.util.Scanner;
 
 
+/**
+ * @author wangsai
+ */
 public class NettyChatClientHandler extends SimpleChannelInboundHandler<String> {
 
     public NettyChatClientHandler() {
