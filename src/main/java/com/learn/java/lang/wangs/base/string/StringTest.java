@@ -53,6 +53,21 @@ public class StringTest {
         String b = "12";
 
         System.err.println(a.indexOf(b));
+
+        int i = 20170131;
+        StringBuffer sb = new StringBuffer(20170131);
+        sb.append(i);
+        sb.replace(3, 4, sb.charAt(3) + "-");
+        //sb.replace(6, 7, sb.charAt(6) + "-");
+
+
+//        StringBuffer sb = new StringBuffer("20170131");
+//        sb.replace(3, 4, sb.charAt(3) + "-");
+//        sb.replace(6, 7, sb.charAt(6) + "-");
+        //sb.replace(3, 4, "-");
+
+        System.out.println(sb.toString());
+
     }
 
 }

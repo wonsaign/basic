@@ -12,8 +12,21 @@ public class BigDecimalTest {
         //testChu2();
         //test3();
         //test4();
-        test5();
+//        test5();
+//        test6();
+
+        BigDecimal a = BigDecimal.valueOf(1000);
+        System.out.println(a.negate());
     }
+    public static void test6() {
+        BigDecimal a = BigDecimal.valueOf(1000);
+        BigDecimal b = BigDecimal.valueOf(2000);
+
+        BigDecimal c = a.add(b);
+
+        System.err.println(c);
+    }
+
 
     public static void test5() {
         BigDecimal a = BigDecimal.valueOf(22154.64);
