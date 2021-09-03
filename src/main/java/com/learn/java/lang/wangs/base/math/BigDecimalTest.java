@@ -15,9 +15,19 @@ public class BigDecimalTest {
 //        test5();
 //        test6();
 
-        BigDecimal a = BigDecimal.valueOf(1000);
-        System.out.println(a.negate());
+//        BigDecimal a = BigDecimal.valueOf(1000);
+//        System.out.println(a.negate());
+        testCompare();
     }
+    public static void testCompare() {
+        BigDecimal a = BigDecimal.valueOf(1000);
+        BigDecimal b = BigDecimal.valueOf(2000);
+        BigDecimal c = BigDecimal.valueOf(2000);
+        System.err.println(a.compareTo(b));
+        System.out.println(b.compareTo(a));
+        System.out.println(b.compareTo(c));
+    }
+
     public static void test6() {
         BigDecimal a = BigDecimal.valueOf(1000);
         BigDecimal b = BigDecimal.valueOf(2000);
