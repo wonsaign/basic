@@ -1,4 +1,4 @@
-package com.learn.java.lang.wangs.base.rmi.api;
+package com.learn.java.lang.wangs.base.rmi.demo;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

@@ -1,6 +1,6 @@
-package com.learn.java.lang.wangs.base.rmi.client;
+package com.learn.java.lang.wangs.base.rmi.demo;
 
-import com.learn.java.lang.wangs.base.rmi.api.Task;
+import com.learn.java.lang.wangs.base.rmi.demo.Task;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

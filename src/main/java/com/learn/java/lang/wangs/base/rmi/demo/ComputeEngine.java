@@ -1,10 +1,6 @@
-package com.learn.java.lang.wangs.base.rmi.server;
+package com.learn.java.lang.wangs.base.rmi.demo;
 
 
-import com.learn.java.lang.wangs.base.rmi.api.Compute;
-import com.learn.java.lang.wangs.base.rmi.api.Task;
-
-import java.math.BigDecimal;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;

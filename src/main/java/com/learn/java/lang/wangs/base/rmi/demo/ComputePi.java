@@ -1,6 +1,4 @@
-package com.learn.java.lang.wangs.base.rmi.client;
-
-import com.learn.java.lang.wangs.base.rmi.api.Compute;
+package com.learn.java.lang.wangs.base.rmi.demo;
 
 import java.math.BigDecimal;
 import java.rmi.registry.LocateRegistry;
